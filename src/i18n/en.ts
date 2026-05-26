@@ -9,35 +9,39 @@ const en = {
     'section.hobby': 'Hobby',
     'section.languages': 'Languages',
 
+    // Fenergo — Software Developer
+    'job.fenergo.dev': 'Software Developer',
+    'job.fenergo.dev.bullet1': 'designing and developing distributed systems using DDD and Microservices architecture',
+    'job.fenergo.dev.bullet2': 'refactoring legacy solutions and improving system maintainability',
+    'job.fenergo.dev.bullet3': 'building and optimizing CI/CD pipelines in Azure DevOps',
+    'job.fenergo.dev.bullet4': 'managing AWS infrastructure with Pulumi (Infrastructure as Code)',
+    'job.fenergo.dev.bullet5': 'implementing automated testing strategies with unit and end-to-end tests (Cypress)',
+    'job.fenergo.dev.bullet6': 'leveraging AI development tools (Claude, GitHub Copilot, Cursor) to improve development efficiency',
+
     // Job titles & bullets — KPMG
     'job.kpmg.lead': 'Lead Developer',
     'job.kpmg.dev': 'Software Developer',
-    'job.kpmg.bullet1': 'designing and implementing enterprise-grade cloud solutions on Azure',
-    'job.kpmg.bullet2': 'leading a development team and mentoring junior developers',
-    'job.kpmg.bullet3': 'conducting code reviews and enforcing architectural standards',
-    'job.kpmg.bullet4': 'collaborating directly with clients on requirements and delivery',
-    'job.kpmg.bullet5': 'implementing CI/CD pipelines on Azure DevOps',
+    'job.kpmg.lead.bullet1': 'evaluating and planning development tasks',
+    'job.kpmg.lead.bullet2': 'supporting the development team and non-technical team members',
+    'job.kpmg.lead.bullet3': 'mediation between teams the development team cooperates with',
+    'job.kpmg.dev.bullet1': 'designing, implementing, and refactoring solutions for local and cloud servers',
+    'job.kpmg.dev.bullet2': 'optimization of software development processes',
+    'job.kpmg.dev.bullet3': 'implementation of organizational solutions',
+    'job.kpmg.dev.bullet4': 'implementation of automated testing in the software development process',
+    'job.kpmg.dev.bullet5': 'implementation of the CI/CD process on Azure DevOps',
 
     // S.B.E Polska — Mid
     'job.sbe.mid': 'IT Specialist (Mid)',
-    'job.sbe.mid.bullet1': 'evaluating and planning development tasks',
-    'job.sbe.mid.bullet2': 'designing, implementing, and refactoring solutions for local and cloud servers',
-    'job.sbe.mid.bullet3': 'supporting the development team and non-technical team members',
-    'job.sbe.mid.bullet4': 'mediation between teams the development team cooperates with',
-    'job.sbe.mid.bullet5': 'optimization of software development processes',
-    'job.sbe.mid.bullet6': 'implementation of organizational solutions',
-    'job.sbe.mid.bullet7': 'implementation of automated testing in the software development process',
-    'job.sbe.mid.bullet8': 'implementation of the CI/CD process on Azure DevOps',
+    'job.sbe.mid.bullet1': 'providing comprehensive solutions in the form of tools and systems, from design to final implementation and maintenance',
+    'job.sbe.mid.bullet2': 'providing technological support to the team',
+    'job.sbe.mid.bullet3': 'implementing dedicated interfaces integrating corporate systems, both internally and with external services',
+    'job.sbe.mid.bullet4': 'participating in meetings with clients',
 
     // S.B.E Polska — Junior
     'job.sbe.junior': 'Junior IT Specialist',
     'job.sbe.junior.bullet1': 'software development',
     'job.sbe.junior.bullet2': 'maintenance of functioning applications and systems',
     'job.sbe.junior.bullet3': 'end-user support',
-    'job.sbe.junior.bullet4': 'providing comprehensive solutions in the form of tools and systems, from design to final implementation and maintenance',
-    'job.sbe.junior.bullet5': 'providing technological support to the team',
-    'job.sbe.junior.bullet6': 'implementing dedicated interfaces integrating corporate systems, both internally and with external services',
-    'job.sbe.junior.bullet7': 'participating in meetings with clients',
 
     // Projects
     'project.motorola.name': 'Service Form — Motorola & Cordon Group Poland',

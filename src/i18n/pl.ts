@@ -9,35 +9,39 @@ const pl = {
     'section.hobby': 'Hobby',
     'section.languages': 'Języki',
 
+    // Fenergo — Software Developer
+    'job.fenergo.dev': 'Software Developer',
+    'job.fenergo.dev.bullet1': 'projektowanie i rozwijanie systemów rozproszonych z wykorzystaniem architektury DDD i mikroserwisów',
+    'job.fenergo.dev.bullet2': 'refaktoryzacja rozwiązań legacy i poprawa utrzymywalności systemu',
+    'job.fenergo.dev.bullet3': 'budowanie i optymalizacja pipelineów CI/CD w Azure DevOps',
+    'job.fenergo.dev.bullet4': 'zarządzanie infrastrukturą AWS przy użyciu Pulumi (Infrastructure as Code)',
+    'job.fenergo.dev.bullet5': 'implementacja strategii testowania automatycznego z testami jednostkowymi i end-to-end (Cypress)',
+    'job.fenergo.dev.bullet6': 'wykorzystanie narzędzi AI (Claude, GitHub Copilot, Cursor) do zwiększenia efektywności pracy',
+
     // Job titles & bullets — KPMG
     'job.kpmg.lead': 'Lead Developer',
     'job.kpmg.dev': 'Software Developer',
-    'job.kpmg.bullet1': 'projektowanie i wdrażanie rozwiązań chmurowych klasy enterprise na Azure',
-    'job.kpmg.bullet2': 'kierowanie zespołem developerskim i mentoring młodszych programistów',
-    'job.kpmg.bullet3': 'prowadzenie code review i egzekwowanie standardów architektonicznych',
-    'job.kpmg.bullet4': 'bezpośrednia współpraca z klientami w zakresie wymagań i dostarczania rozwiązań',
-    'job.kpmg.bullet5': 'wdrożenie pipeline\u2019ów CI/CD na Azure DevOps',
+    'job.kpmg.lead.bullet1': 'ocenianie i planowanie zadań deweloperskich',
+    'job.kpmg.lead.bullet2': 'wsparcie zespołu deweloperskiego oraz pracowników nietechnicznych',
+    'job.kpmg.lead.bullet3': 'mediacja między zespołami współpracującymi z zespołem deweloperskim',
+    'job.kpmg.dev.bullet1': 'projektowanie, wdrażanie i refaktoryzacja rozwiązań na serwerach lokalnych i chmurowych',
+    'job.kpmg.dev.bullet2': 'optymalizacja procesów wytwarzania oprogramowania',
+    'job.kpmg.dev.bullet3': 'wdrażanie rozwiązań organizacyjnych',
+    'job.kpmg.dev.bullet4': 'implementacja testów automatycznych w procesie wytwarzania oprogramowania',
+    'job.kpmg.dev.bullet5': 'wdrożenie procesu CI/CD na Azure DevOps',
 
     // S.B.E Polska — Mid
     'job.sbe.mid': 'Specjalista IT (Mid)',
-    'job.sbe.mid.bullet1': 'ocenianie i planowanie zadań deweloperskich',
-    'job.sbe.mid.bullet2': 'projektowanie, wdrażanie i refaktoryzacja rozwiązań na serwerach lokalnych i chmurowych',
-    'job.sbe.mid.bullet3': 'wsparcie zespołu deweloperskiego oraz pracowników nietech nicznych',
-    'job.sbe.mid.bullet4': 'mediacja między zespołami współpracującymi z zespołem deweloperskim',
-    'job.sbe.mid.bullet5': 'optymalizacja procesów wytwarzania oprogramowania',
-    'job.sbe.mid.bullet6': 'wdrażanie rozwiązań organizacyjnych',
-    'job.sbe.mid.bullet7': 'implementacja testów automatycznych w procesie wytwarzania oprogramowania',
-    'job.sbe.mid.bullet8': 'wdrożenie procesu CI/CD na Azure DevOps',
+    'job.sbe.mid.bullet1': 'dostarczanie kompleksowych rozwiązań w postaci narzędzi i systemów, od projektowania do wdrożenia i utrzymania',
+    'job.sbe.mid.bullet2': 'zapewnianie wsparcia technologicznego dla zespołu',
+    'job.sbe.mid.bullet3': 'implementacja dedykowanych interfejsów integrujących systemy korporacyjne, wewnętrznie i z zewnętrznymi usługami',
+    'job.sbe.mid.bullet4': 'udział w spotkaniach z klientami',
 
     // S.B.E Polska — Junior
     'job.sbe.junior': 'Młodszy Specjalista IT',
     'job.sbe.junior.bullet1': 'tworzenie oprogramowania',
     'job.sbe.junior.bullet2': 'utrzymanie działających aplikacji i systemów',
     'job.sbe.junior.bullet3': 'wsparcie użytkowników końcowych',
-    'job.sbe.junior.bullet4': 'dostarczanie kompleksowych rozwiązań w postaci narzędzi i systemów, od projektowania do wdrożenia i utrzymania',
-    'job.sbe.junior.bullet5': 'zapewnianie wsparcia technologicznego dla zespołu',
-    'job.sbe.junior.bullet6': 'implementacja dedykowanych interfejsów integrujących systemy korporacyjne, wewnętrznie i z zewnętrznymi usługami',
-    'job.sbe.junior.bullet7': 'udział w spotkaniach z klientami',
 
     // Projects
     'project.motorola.name': 'Formularz serwisowy — Motorola & Cordon Group Poland',

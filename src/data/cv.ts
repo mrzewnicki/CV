@@ -46,22 +46,43 @@ export const cvData = {
   },
   workExperience: [
     {
+      company: 'Fenergo',
+      roles: [
+        {
+          titleKey: 'job.fenergo.dev',
+          period: '01.2026 – 06.2026',
+          bullets: [
+            'job.fenergo.dev.bullet1',
+            'job.fenergo.dev.bullet2',
+            'job.fenergo.dev.bullet3',
+            'job.fenergo.dev.bullet4',
+            'job.fenergo.dev.bullet5',
+            'job.fenergo.dev.bullet6',
+          ],
+        },
+      ],
+    },
+    {
       company: 'KPMG',
       roles: [
         {
           titleKey: 'job.kpmg.lead',
           period: '11.2023 – 08.2025',
-          bullets: [],
+          bullets: [
+            'job.kpmg.lead.bullet1',
+            'job.kpmg.lead.bullet2',
+            'job.kpmg.lead.bullet3',
+          ],
         },
         {
           titleKey: 'job.kpmg.dev',
           period: '03.2023 – 11.2023',
           bullets: [
-            'job.kpmg.bullet1',
-            'job.kpmg.bullet2',
-            'job.kpmg.bullet3',
-            'job.kpmg.bullet4',
-            'job.kpmg.bullet5',
+            'job.kpmg.dev.bullet1',
+            'job.kpmg.dev.bullet2',
+            'job.kpmg.dev.bullet3',
+            'job.kpmg.dev.bullet4',
+            'job.kpmg.dev.bullet5',
           ],
         },
       ],
@@ -77,10 +98,6 @@ export const cvData = {
             'job.sbe.mid.bullet2',
             'job.sbe.mid.bullet3',
             'job.sbe.mid.bullet4',
-            'job.sbe.mid.bullet5',
-            'job.sbe.mid.bullet6',
-            'job.sbe.mid.bullet7',
-            'job.sbe.mid.bullet8',
           ],
         },
         {
@@ -90,10 +107,6 @@ export const cvData = {
             'job.sbe.junior.bullet1',
             'job.sbe.junior.bullet2',
             'job.sbe.junior.bullet3',
-            'job.sbe.junior.bullet4',
-            'job.sbe.junior.bullet5',
-            'job.sbe.junior.bullet6',
-            'job.sbe.junior.bullet7',
           ],
         },
       ],
