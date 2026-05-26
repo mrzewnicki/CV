@@ -141,7 +141,7 @@ export const cvData = {
     },
     {
       titleKey: 'skills.frameworks',
-      items: ['Blazor', 'Hangfire', 'SignalR', 'DevExpress', 'EntityFramework', 'LINQ', 'REST', 'SOAP', 'Selenium WebDriver', 'Playwright', 'Docker'],
+      items: ['Blazor', 'Hangfire', 'SignalR', 'DevExpress', 'EntityFramework', 'LINQ', 'REST', 'SOAP', 'Selenium WebDriver', 'Playwright', 'Cypress', 'Docker'],
     },
     {
       titleKey: 'skills.databases',
@@ -149,7 +149,7 @@ export const cvData = {
     },
     {
       titleKey: 'skills.cloud',
-      items: ['Azure App Services', 'Azure Functions', 'Azure SQL Database', 'Entra ID', 'API Management', 'Azure Monitor', 'App Gateway', 'Azure DNS', 'Private Link', 'Storage Account'],
+      items: ['AWS', 'Azure App Services', 'Azure Functions', 'Azure SQL Database', 'Entra ID', 'API Management', 'Azure Monitor', 'App Gateway', 'Azure DNS', 'Private Link', 'Storage Account', 'Pulumi'],
     },
     {
       titleKey: 'skills.systems',
@@ -161,7 +161,7 @@ export const cvData = {
     },
     {
       titleKey: 'skills.patterns',
-      items: ['Clean Architecture', 'DDD', 'MVC', 'CQRS', 'Structural', 'Behavioral', 'Creative'],
+      items: ['Clean Architecture', 'DDD', 'Microservices', 'MVC', 'CQRS', 'Structural', 'Behavioral', 'Creative'],
     },
     {
       titleKey: 'skills.ide',
@@ -169,7 +169,7 @@ export const cvData = {
     },
     {
       titleKey: 'skills.ai',
-      items: ['ChatGPT', 'Junie', 'GitHub Copilot'],
+      items: ['ChatGPT', 'Claude', 'Junie', 'GitHub Copilot', 'Cursor'],
     },
   ] as SkillGroup[],
 
