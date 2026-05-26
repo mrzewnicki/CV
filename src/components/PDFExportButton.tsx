@@ -29,7 +29,8 @@ export default function PDFExportButton() {
     <button
       onClick={handleExport}
       disabled={loading}
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-5 py-3 rounded-full bg-[#e94560] text-white font-semibold text-sm shadow-xl hover:bg-[#ff6b81] active:scale-95 transition-all disabled:opacity-60"
+      className="hidden fixed bottom-6 right-6 z-50 flex items-center gap-2 px-5 py-3 rounded-full bg-[#e94560] text-white font-semibold text-sm shadow-xl hover:bg-[#ff6b81] active:scale-95 transition-all disabled:opacity-60"
+      aria-hidden="true"
     >
       {loading ? (
         <Loader2 size={16} className="animate-spin" />
