@@ -1,4 +1,33 @@
-# React + TypeScript + Vite
+# Mateusz Rzewnicki — CV
+
+Interactive CV built with React, TypeScript, Vite, and Tailwind CSS. Live site: [mrzewnicki.github.io/CV](https://mrzewnicki.github.io/CV/).
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+## GitHub Pages
+
+The site deploys automatically on every push to `master` via [GitHub Actions](.github/workflows/deploy.yml).
+
+**One-time setup in the repository settings:**
+
+1. Go to **Settings → Pages**
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**
+
+To preview a production build locally:
+
+```bash
+npm run build:pages
+npm run preview -- --base /CV/
+```
+
+---
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
