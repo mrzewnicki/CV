@@ -26,22 +26,29 @@ const colors = {
   purple: '#533483',
 };
 
+const SIDEBAR_WIDTH = '30%';
+
 const styles = StyleSheet.create({
   page: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     backgroundColor: '#16213e',
     fontFamily: 'Helvetica',
     fontSize: 9,
+    position: 'relative',
   },
   sidebar: {
-    width: '30%',
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: SIDEBAR_WIDTH,
     backgroundColor: colors.sidebar,
     padding: 20,
     flexDirection: 'column',
     gap: 16,
   },
   main: {
-    width: '70%',
+    width: '100%',
     padding: 24,
     flexDirection: 'column',
     gap: 20,
@@ -287,84 +294,83 @@ interface Props {
   t: (key: string) => string;
 }
 
-export default function CVDocument({ t, lang: _lang }: Props) {
+function PdfSidebar({ t }: { t: (key: string) => string }) {
   return (
-    <Document title={`Mateusz Rzewnicki — CV`} author="Mateusz Rzewnicki">
-      <Page size="A4" style={styles.page}>
-        {/* ── SIDEBAR ── */}
-        <View style={styles.sidebar}>
-          {/* Initials */}
-          <View style={{ alignItems: 'center', marginBottom: 8 }}>
-            <View style={styles.initialsCircle}>
-              <Text style={styles.initialsText}>MR</Text>
-            </View>
-            <Text style={{ fontSize: 7, color: colors.mutedGray, marginTop: 4 }}>
-              {t('nav.dob')}: {cvData.contact.dob}
-            </Text>
-          </View>
-
-          {/* Contact */}
-          <View>
-            <Text style={styles.sectionLabel}>{t('section.contact')}</Text>
-            <View style={styles.contactRow}>
-              <View style={styles.contactBullet} />
-              <Link src={`tel:${cvData.contact.phone}`} style={styles.contactLink}>
-                {cvData.contact.phone}
-              </Link>
-            </View>
-            <View style={styles.contactRow}>
-              <View style={styles.contactBullet} />
-              <Link src={`mailto:${cvData.contact.email}`} style={styles.contactLink}>
-                {cvData.contact.email}
-              </Link>
-            </View>
-            <View style={styles.contactRow}>
-              <View style={styles.contactBullet} />
-              <Link src={cvData.contact.linkedin} style={styles.contactLink}>
-                {cvData.contact.linkedinHandle}
-              </Link>
-            </View>
-            <View style={styles.contactRow}>
-              <View style={styles.contactBullet} />
-              <Link src={cvData.contact.github} style={styles.contactLink}>
-                {cvData.contact.githubHandle}
-              </Link>
-            </View>
-            <View style={styles.contactRow}>
-              <View style={styles.contactBullet} />
-              <Text style={styles.contactText}>
-                {cvData.contact.address}, {cvData.contact.street}
-              </Text>
-            </View>
-          </View>
-
-          {/* Languages */}
-          <View>
-            <Text style={styles.sectionLabel}>{t('section.languages')}</Text>
-            {cvData.languages.map((lang) => (
-              <View key={lang.langKey} style={styles.langRow}>
-                <Text style={styles.langName}>{t(lang.langKey)}</Text>
-                <Text style={styles.langBadge}>{lang.level}</Text>
-              </View>
-            ))}
-          </View>
-
-          {/* Hobby */}
-          <View>
-            <Text style={styles.sectionLabel}>{t('section.hobby')}</Text>
-            {cvData.hobby.map((h) => (
-              <View key={h.key} style={styles.hobbyItem}>
-                <Text style={styles.hobbyTitle}>{t(h.key)}</Text>
-                <Text style={styles.hobbyDetail}>{h.detail}</Text>
-              </View>
-            ))}
-          </View>
+    <>
+      {/* Initials */}
+      <View style={{ alignItems: 'center', marginBottom: 8 }}>
+        <View style={styles.initialsCircle}>
+          <Text style={styles.initialsText}>MR</Text>
         </View>
+        <Text style={{ fontSize: 7, color: colors.mutedGray, marginTop: 4 }}>
+          {t('nav.dob')}: {cvData.contact.dob}
+        </Text>
+      </View>
 
-        {/* ── MAIN ── */}
-        <View style={styles.main}>
-          {/* Header */}
-          <View style={styles.headerBlock}>
+      {/* Contact */}
+      <View>
+        <Text style={styles.sectionLabel}>{t('section.contact')}</Text>
+        <View style={styles.contactRow}>
+          <View style={styles.contactBullet} />
+          <Link src={`tel:${cvData.contact.phone}`} style={styles.contactLink}>
+            {cvData.contact.phone}
+          </Link>
+        </View>
+        <View style={styles.contactRow}>
+          <View style={styles.contactBullet} />
+          <Link src={`mailto:${cvData.contact.email}`} style={styles.contactLink}>
+            {cvData.contact.email}
+          </Link>
+        </View>
+        <View style={styles.contactRow}>
+          <View style={styles.contactBullet} />
+          <Link src={cvData.contact.linkedin} style={styles.contactLink}>
+            {cvData.contact.linkedinHandle}
+          </Link>
+        </View>
+        <View style={styles.contactRow}>
+          <View style={styles.contactBullet} />
+          <Link src={cvData.contact.github} style={styles.contactLink}>
+            {cvData.contact.githubHandle}
+          </Link>
+        </View>
+        <View style={styles.contactRow}>
+          <View style={styles.contactBullet} />
+          <Text style={styles.contactText}>
+            {cvData.contact.address}, {cvData.contact.street}
+          </Text>
+        </View>
+      </View>
+
+      {/* Languages */}
+      <View>
+        <Text style={styles.sectionLabel}>{t('section.languages')}</Text>
+        {cvData.languages.map((lang) => (
+          <View key={lang.langKey} style={styles.langRow}>
+            <Text style={styles.langName}>{t(lang.langKey)}</Text>
+            <Text style={styles.langBadge}>{lang.level}</Text>
+          </View>
+        ))}
+      </View>
+
+      {/* Hobby */}
+      <View>
+        <Text style={styles.sectionLabel}>{t('section.hobby')}</Text>
+        {cvData.hobby.map((h) => (
+          <View key={h.key} style={styles.hobbyItem}>
+            <Text style={styles.hobbyTitle}>{t(h.key)}</Text>
+            <Text style={styles.hobbyDetail}>{h.detail}</Text>
+          </View>
+        ))}
+      </View>
+    </>
+  );
+}
+
+function PdfMainContent({ t }: { t: (key: string) => string }) {
+  return (
+    <>
+      <View style={styles.headerBlock}>
             <Text style={styles.nameFirst}>{cvData.name.first}</Text>
             <Text style={styles.nameLast}>{cvData.name.last.toUpperCase()}</Text>
             <View style={styles.tagRow}>
@@ -449,9 +455,35 @@ export default function CVDocument({ t, lang: _lang }: Props) {
             ))}
           </View>
 
-          {/* GDPR */}
-          <Text style={styles.gdprText}>{t('gdpr')}</Text>
-        </View>
+      <Text style={styles.gdprText}>{t('gdpr')}</Text>
+    </>
+  );
+}
+
+export default function CVDocument({ t, lang: _lang }: Props) {
+  return (
+    <Document title={`Mateusz Rzewnicki — CV`} author="Mateusz Rzewnicki">
+      <Page size="A4" style={styles.page}>
+        {/* Sidebar: first page only (personal data) */}
+        <View
+          fixed
+          style={styles.sidebar}
+          render={({ pageNumber }) => (pageNumber === 1 ? <PdfSidebar t={t} /> : null)}
+        />
+
+        {/* Main: offset on page 1, full width on following pages */}
+        <View
+          render={({ pageNumber }) => (
+            <View
+              style={[
+                styles.main,
+                { paddingLeft: pageNumber === 1 ? SIDEBAR_WIDTH : 24 },
+              ]}
+            >
+              <PdfMainContent t={t} />
+            </View>
+          )}
+        />
       </Page>
     </Document>
   );

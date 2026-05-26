@@ -3,7 +3,7 @@ import { cvData } from '../data/cv';
 
 export default function Header() {
   return (
-    <div className="bg-gradient-to-r from-[#0f3460] to-[#16213e] px-10 py-10 border-b border-[#e94560]/30">
+    <div className="bg-gradient-to-r from-[#0f3460] to-[#16213e] px-6 py-6 border-b border-[#e94560]/30">
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
