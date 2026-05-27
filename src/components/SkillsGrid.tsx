@@ -15,7 +15,7 @@ function SkillGroupColumn({
   return (
     <div className={layoutClass(isA4, 'space-y-4', 'space-y-3')}>
       {groups.map((group) => (
-        <div key={group.titleKey}>
+        <div key={group.titleKey} className="cv-skill-group">
           <h4
             className={layoutClass(
               isA4,
