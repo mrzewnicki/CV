@@ -20,7 +20,7 @@ export default function WorkExperience() {
     <section>
       <SectionTitle title={t('section.work')} />
       <motion.div
-        className="space-y-8"
+        className="space-y-5"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -28,7 +28,7 @@ export default function WorkExperience() {
       >
         {cvData.workExperience.map((exp) => (
           <motion.div key={exp.company} variants={itemVariants}>
-            <h3 className="text-lg font-bold text-white mb-3">{exp.company}</h3>
+            <h3 className="text-lg font-bold text-white mb-3 pl-4">{exp.company}</h3>
             <div className="space-y-4 pl-4 border-l-2 border-[#e94560]/30">
               {exp.roles.map((role) => (
                 <div key={role.titleKey} className="relative">

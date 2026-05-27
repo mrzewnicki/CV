@@ -55,7 +55,7 @@ const en = {
     'skills.languages': 'Programming Languages',
     'skills.frameworks': 'Frameworks & Libraries',
     'skills.databases': 'Databases',
-    'skills.cloud': 'Azure Cloud',
+    'skills.cloud': 'Cloud',
     'skills.systems': 'Systems',
     'skills.methods': 'Methods & Rules',
     'skills.patterns': 'Design Patterns',

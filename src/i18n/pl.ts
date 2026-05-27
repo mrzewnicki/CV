@@ -55,7 +55,7 @@ const pl = {
     'skills.languages': 'Języki programowania',
     'skills.frameworks': 'Frameworki i biblioteki',
     'skills.databases': 'Bazy danych',
-    'skills.cloud': 'Azure Cloud',
+    'skills.cloud': 'Chmura',
     'skills.systems': 'Systemy operacyjne',
     'skills.methods': 'Metody i zasady',
     'skills.patterns': 'Wzorce projektowe',

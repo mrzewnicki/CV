@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: `${colors.accent}44`,
     borderRadius: 6,
-    padding: 10,
+    padding: 8,
     marginBottom: 6,
     backgroundColor: `${colors.darkBlue}66`,
   },
@@ -227,11 +227,13 @@ const styles = StyleSheet.create({
   techRow: { flexDirection: 'row', gap: 4, flexWrap: 'wrap', marginBottom: 5 },
   techTag: {
     fontSize: 7,
-    color: '#c4b5fd',
-    backgroundColor: `${colors.purple}66`,
+    color: colors.lightGray,
+    backgroundColor: `${colors.darkBlue}99`,
+    borderWidth: 0.5,
+    borderColor: `${colors.accent}33`,
     paddingHorizontal: 5,
     paddingVertical: 2,
-    borderRadius: 4,
+    borderRadius: 3,
   },
   projectLink: {
     fontSize: 7,
@@ -393,7 +395,7 @@ function PdfMainContent({ t }: { t: (key: string) => string }) {
           <View>
             <Text style={styles.mainSectionLabel}>{t('section.work')}</Text>
             {cvData.workExperience.map((exp) => (
-              <View key={exp.company} style={{ marginBottom: 10 }}>
+              <View key={exp.company} style={{ marginBottom: 6 }}>
                 <Text style={styles.companyName}>{exp.company}</Text>
                 {exp.roles.map((role) => (
                   <View key={role.titleKey} style={{ marginBottom: 6 }}>

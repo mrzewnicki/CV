@@ -20,20 +20,20 @@ export default function ProjectExperience() {
         {cvData.projects.map((p) => (
           <div
             key={p.nameKey}
-            className="bg-[#0f3460]/40 border border-[#e94560]/20 rounded-xl p-4 hover:border-[#e94560]/50 transition-colors"
+            className="bg-[#0f3460]/40 border border-[#e94560]/20 rounded-xl p-3 hover:border-[#e94560]/50 transition-colors"
           >
-            <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
+            <div className="flex flex-wrap items-start justify-between gap-2 mb-1.5">
               <h3 className="font-bold text-gray-100 text-sm">{t(p.nameKey)}</h3>
               <span className="text-xs text-[#e94560] font-mono bg-[#e94560]/10 px-2 py-0.5 rounded flex-shrink-0">
                 {p.period}
               </span>
             </div>
-            <p className="text-xs text-gray-400 mb-3">{t(p.descriptionKey)}</p>
-            <div className="flex flex-wrap gap-2 mb-3">
+            <p className="text-xs text-gray-400 mb-2">{t(p.descriptionKey)}</p>
+            <div className="flex flex-wrap gap-2 mb-2">
               {p.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="text-[11px] px-2 py-0.5 rounded bg-[#533483]/40 text-purple-300 border border-purple-500/20"
+                  className="text-[11px] px-2.5 py-1 rounded-md bg-[#0f3460]/60 text-gray-300 border border-[#e94560]/15"
                 >
                   {tech}
                 </span>

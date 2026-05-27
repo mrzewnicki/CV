@@ -148,11 +148,7 @@ export const cvData = {
     },
     {
       titleKey: 'skills.cloud',
-      items: ['AWS', 'Azure App Services', 'Azure Functions', 'Azure SQL Database', 'Entra ID', 'API Management', 'Azure Monitor', 'App Gateway', 'Azure DNS', 'Private Link', 'Storage Account', 'Pulumi'],
-    },
-    {
-      titleKey: 'skills.systems',
-      items: ['Ubuntu LTS 18.04+', 'Debian 7+', 'Docker'],
+      items: ['AWS', 'Lambda', 'S3', 'State Machine', 'Azure App Services', 'Azure Functions', 'Azure SQL Database', 'Entra ID', 'API Management', 'Azure Monitor', 'App Gateway', 'Azure DNS', 'Private Link', 'Storage Account', 'Pulumi'],
     },
     {
       titleKey: 'skills.methods',
