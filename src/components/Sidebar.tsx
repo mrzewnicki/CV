@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mail, Phone, MapPin, Film, BookOpen, Video, Swords } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { cvData } from '../data/cv';
 import avatarImg from '../assets/avatar.png';
 import Education from './Education';
@@ -42,14 +41,6 @@ const hobbyIcons: Record<string, React.ReactNode> = {
   'hobby.books': <BookOpen size={14} />,
 };
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 12 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.04, duration: 0.2 },
-  }),
-};
 
 export default function Sidebar() {
   const { t } = useTranslation();
@@ -87,49 +78,37 @@ export default function Sidebar() {
   );
 
   return (
-    <aside className="bg-cv-sidebar text-cv-text-secondary flex flex-col gap-6 p-6 min-h-full">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.2 }}
-        className="flex flex-col items-center gap-3"
-      >
-        <div className="w-28 h-28 rounded-full overflow-hidden ring-1 ring-cv-border">
+    <aside className="bg-cv-sidebar text-cv-text-secondary flex flex-col gap-4 p-4 min-h-full">
+      <div className="flex flex-col items-center gap-2">
+        <div className="w-[72px] h-[72px] rounded-full overflow-hidden ring-1 ring-cv-border">
           <img
             src={avatarImg}
             alt={`${cvData.name.first} ${cvData.name.last}`}
             className="h-full w-full object-cover"
           />
         </div>
-        <p className="text-xs text-cv-text-muted">
+        <p className="text-[8px] text-cv-text-muted">
           {t('nav.dob')}: {cvData.contact.dob}
         </p>
-      </motion.div>
+      </div>
 
-      <motion.section initial="hidden" animate="visible">
+      <section>
         <SidebarSectionTitle title={t('section.contact')} />
-        <ul className="space-y-2.5">
+        <ul className="space-y-1.5">
           {contactItems.map((item, i) => (
-            <motion.li
-              key={i}
-              custom={i}
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              className="flex items-start gap-2"
-            >
-              <span className="mt-0.5 text-cv-text-muted flex-shrink-0">{item.icon}</span>
+            <li key={i} className="flex items-start gap-1.5">
+              <span className="mt-px text-cv-text-muted flex-shrink-0 [&>svg]:w-[10px] [&>svg]:h-[10px]">{item.icon}</span>
               {item.href ? (
                 <a
                   href={item.href}
                   target={item.href.startsWith('http') ? '_blank' : undefined}
                   rel="noopener noreferrer"
-                  className="text-xs text-cv-text-secondary hover:text-cv-accent transition-colors duration-200 break-all"
+                  className="text-[9px] text-cv-text-secondary hover:text-cv-accent transition-colors duration-200 break-all"
                 >
                   {item.value}
                 </a>
               ) : (
-                <span className="text-xs text-cv-text-secondary min-w-0 break-words block">
+                <span className="text-[9px] text-cv-text-secondary min-w-0 break-words block">
                   {item.value}
                   {'secondLine' in item && item.secondLine ? (
                     <>
@@ -139,57 +118,39 @@ export default function Sidebar() {
                   ) : null}
                 </span>
               )}
-            </motion.li>
-          ))}
-        </ul>
-      </motion.section>
-
-      <motion.section
-        initial={{ opacity: 0, x: -12 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.2 }}
-      >
-        <SidebarSectionTitle title={t('section.languages')} />
-        <ul className="space-y-2">
-          {cvData.languages.map((lang) => (
-            <li key={lang.langKey} className="flex items-center justify-between text-xs">
-              <span className="text-cv-text-secondary">{t(lang.langKey)}</span>
-              <span className="cv-badge text-[10px] py-0.5">{lang.level}</span>
             </li>
           ))}
         </ul>
-      </motion.section>
+      </section>
+
+      <section>
+        <SidebarSectionTitle title={t('section.languages')} />
+        <ul className="space-y-1.5">
+          {cvData.languages.map((lang) => (
+            <li key={lang.langKey} className="flex items-center justify-between">
+              <span className="text-[9px] text-cv-text-secondary">{t(lang.langKey)}</span>
+              <span className="cv-badge !text-[8px] !py-px !px-1.5">{lang.level}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <Education variant="sidebar" />
 
-      <motion.section
-        initial={{ opacity: 0, x: -12 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.2, delay: 0.05 }}
-      >
+      <section>
         <SidebarSectionTitle title={t('section.hobby')} />
-        <ul className="space-y-2.5">
-          {cvData.hobby.map((h, i) => (
-            <motion.li
-              key={h.key}
-              custom={i}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="flex items-start gap-2"
-            >
-              <span className="mt-0.5 text-cv-text-muted flex-shrink-0">{hobbyIcons[h.key]}</span>
+        <ul className="space-y-1.5">
+          {cvData.hobby.map((h) => (
+            <li key={h.key} className="flex items-start gap-1.5">
+              <span className="mt-px text-cv-text-muted flex-shrink-0 [&>svg]:w-[10px] [&>svg]:h-[10px]">{hobbyIcons[h.key]}</span>
               <div>
-                <p className="text-xs font-medium text-cv-text-primary">{t(h.key)}</p>
-                <p className="text-[11px] text-cv-text-muted">{h.detail}</p>
+                <p className="text-[9px] font-medium text-cv-text-primary">{t(h.key)}</p>
+                <p className="text-[8px] text-cv-text-muted">{h.detail}</p>
               </div>
-            </motion.li>
+            </li>
           ))}
         </ul>
-      </motion.section>
+      </section>
     </aside>
   );
 }

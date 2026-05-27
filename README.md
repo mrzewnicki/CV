@@ -12,6 +12,13 @@ npm install
 npm run dev
 ```
 
+### PDF export
+
+- **Local (`npm run dev`)**: Download uses the Puppeteer server. Start it in a second terminal: `npm run server`.
+- **Production (GitHub Pages)**: Download serves pre-built files from `public/pdf/` (`Mateusz_Rzewnicki_CV_EN.pdf`, `Mateusz_Rzewnicki_CV_PL.pdf`) based on the current language.
+
+After you change the CV layout or content, regenerate PDFs locally (with the server running), then replace the files in `public/pdf/` before deploying.
+
 ## GitHub Pages
 
 The site deploys automatically on every push to `master` via [GitHub Actions](.github/workflows/deploy.yml).
