@@ -293,7 +293,7 @@ function PdfSidebar({ t }: { t: (key: string) => string }) {
         <Text style={styles.sectionLabel}>{t('section.contact')}</Text>
         <View style={styles.contactRow}>
           <View style={styles.contactBullet} />
-          <Link src={`tel:${cvData.contact.phone}`} style={styles.contactLink}>
+          <Link src={`tel:${cvData.contact.phone.replace(/\s/g, '')}`} style={styles.contactLink}>
             {cvData.contact.phone}
           </Link>
         </View>

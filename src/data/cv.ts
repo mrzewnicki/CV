@@ -34,7 +34,7 @@ export const cvData = {
     last: 'Rzewnicki',
   },
   contact: {
-    phone: '509 891 358',
+    phone: '+48 509 891 358',
     email: 'mateusz.rzewnicki@wp.pl',
     linkedin: 'https://www.linkedin.com/in/mateusz-rzewnicki-16487616b',
     linkedinHandle: '/mateusz-rzewnicki',
