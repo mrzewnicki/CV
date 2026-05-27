@@ -57,32 +57,36 @@ app.get('/pdf', async (req, res) => {
     await page.waitForSelector('[data-cv-layout="a4"]', { timeout: 15_000 });
     await page.evaluate(() => document.fonts.ready);
 
-    // Inject styles to ensure full bleed - scale content slightly larger
+    // Inject styles to eliminate sub-pixel white slivers at the page edges.
+    // Chrome prints a 210mm page into a PDF canvas that ends up ~210.23mm
+    // wide, so a 1px white sliver appears on the right unless an ancestor
+    // with the main bg extends past the A4 right edge. We widen #root so
+    // its main bg fills the rightmost bleed area, while keeping the
+    // [data-cv-layout] wrapper at A4 width so its (sidebar-colored) bg
+    // does not leak past the cv-page's right edge.
     await page.evaluate(() => {
       const style = document.createElement('style');
       style.textContent = `
-        html {
-          background: #1e293b !important;
+        @page {
+          size: 211mm 298mm !important;
+          margin: 0 !important;
         }
-        body {
-          background: #1e293b !important;
+        html, body {
+          background: var(--cv-main) !important;
           margin: 0 !important;
           padding: 0 !important;
         }
-        #root, #root > div, [data-cv-layout] {
-          background: #1e293b !important;
+        #root {
+          background: var(--cv-main) !important;
           margin: 0 !important;
           padding: 0 !important;
+          width: 215mm !important;
         }
-        .cv-page {
-          width: 211mm !important;
-          height: 298mm !important;
-          margin: -0.5mm !important;
-          background: #1e293b !important;
-          overflow: visible !important;
-        }
-        .cv-page .cv-sidebar-col {
-          background: #111827 !important;
+        #root > [data-cv-layout='a4'] {
+          background: var(--cv-main) !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          width: 210mm !important;
         }
       `;
       document.head.appendChild(style);
