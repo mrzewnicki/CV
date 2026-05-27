@@ -154,9 +154,9 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   companyName: {
-    fontSize: 10,
+    fontSize: 11,
     fontFamily: 'Helvetica-Bold',
-    color: colors.white,
+    color: colors.accent,
     marginBottom: 4,
   },
   roleRow: {

@@ -28,7 +28,7 @@ export default function WorkExperience() {
       >
         {cvData.workExperience.map((exp) => (
           <motion.div key={exp.company} variants={itemVariants}>
-            <h3 className="text-lg font-bold text-white mb-3 pl-4">{exp.company}</h3>
+            <h3 className="text-xl font-bold text-cv-accent mb-3 pl-4">{exp.company}</h3>
             <div className="space-y-4 pl-4 border-l-2 border-cv-accent/30">
               {exp.roles.map((role) => (
                 <div key={role.titleKey} className="relative">

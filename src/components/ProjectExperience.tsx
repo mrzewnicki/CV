@@ -20,7 +20,7 @@ export default function ProjectExperience() {
         {cvData.projects.map((p) => (
           <div
             key={p.nameKey}
-            className="bg-cv-surface/40 border border-cv-accent/20 rounded-xl p-3 hover:border-cv-accent/50 transition-colors"
+            className="bg-cv-surface/40 border border-cv-accent/20 rounded-xl p-3"
           >
             <div className="flex flex-wrap items-start justify-between gap-2 mb-1.5">
               <h3 className="font-bold text-gray-100 text-sm">{t(p.nameKey)}</h3>

@@ -38,7 +38,7 @@ function SkillGroupColumn({
               <motion.span
                 key={item}
                 variants={tagVariants}
-                className="text-[11px] px-2.5 py-1 rounded-md bg-cv-surface/60 text-gray-300 border border-cv-accent/15 hover:border-cv-accent/50 hover:text-white transition-colors cursor-default"
+                className="text-[11px] px-2.5 py-1 rounded-md bg-cv-surface/60 text-gray-300 border border-cv-accent/15 cursor-default"
               >
                 {item}
               </motion.span>

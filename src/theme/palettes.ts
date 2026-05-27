@@ -11,6 +11,17 @@ export type CvPalette = {
 };
 
 export const palettes = {
+  'granat-grafit': {
+    id: 'granat-grafit',
+    name: 'Granat, grafit, zieleń, błękit',
+    page: '#0e1116',
+    sidebar: '#141c28',
+    main: '#1c2a42',
+    surface: '#2a3a52',
+    accent: '#22c55e',
+    accentHover: '#4ade80',
+    secondary: '#3b82f6',
+  },
   'midnight-crimson': {
     id: 'midnight-crimson',
     name: 'Midnight Crimson (current)',
