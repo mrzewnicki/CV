@@ -1,7 +1,10 @@
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mail, Phone, MapPin, Film, BookOpen, Video, Swords } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cvData } from '../data/cv';
+import avatarImg from '../assets/avatar.png';
+import Education from './Education';
 
 function LinkedInIcon({ size = 14 }: { size?: number }) {
   return (
@@ -31,34 +34,6 @@ function GitHubIcon({ size = 14 }: { size?: number }) {
   );
 }
 
-const contactItems = [
-  {
-    icon: <Phone size={14} />,
-    value: cvData.contact.phone,
-    href: `tel:${cvData.contact.phone.replace(/\s/g, '')}`,
-  },
-  {
-    icon: <Mail size={14} />,
-    value: cvData.contact.email,
-    href: `mailto:${cvData.contact.email}`,
-  },
-  {
-    icon: <LinkedInIcon size={14} />,
-    value: cvData.contact.linkedinHandle,
-    href: cvData.contact.linkedin,
-  },
-  {
-    icon: <GitHubIcon size={14} />,
-    value: cvData.contact.githubHandle,
-    href: cvData.contact.github,
-  },
-  {
-    icon: <MapPin size={14} />,
-    value: `${cvData.contact.address}, ${cvData.contact.street}`,
-    href: undefined,
-  },
-];
-
 const hobbyIcons: Record<string, React.ReactNode> = {
   'hobby.film': <Film size={14} />,
   'hobby.rpg': <Swords size={14} />,
@@ -78,6 +53,38 @@ const fadeUp = {
 export default function Sidebar() {
   const { t } = useTranslation();
 
+  const contactItems = useMemo(
+    () => [
+      {
+        icon: <Phone size={14} />,
+        value: cvData.contact.phone,
+        href: `tel:${cvData.contact.phone.replace(/\s/g, '')}`,
+      },
+      {
+        icon: <Mail size={14} />,
+        value: cvData.contact.email,
+        href: `mailto:${cvData.contact.email}`,
+      },
+      {
+        icon: <LinkedInIcon size={14} />,
+        value: cvData.contact.linkedinHandle,
+        href: cvData.contact.linkedin,
+      },
+      {
+        icon: <GitHubIcon size={14} />,
+        value: cvData.contact.githubHandle,
+        href: cvData.contact.github,
+      },
+      {
+        icon: <MapPin size={14} />,
+        value: cvData.contact.address,
+        secondLine: t('contact.street'),
+        href: undefined,
+      },
+    ],
+    [t],
+  );
+
   return (
     <aside className="bg-[#1a1a2e] text-gray-300 flex flex-col gap-8 p-8 min-h-full">
       {/* Avatar / Initials */}
@@ -87,8 +94,12 @@ export default function Sidebar() {
         transition={{ duration: 0.5 }}
         className="flex flex-col items-center gap-4"
       >
-        <div className="w-28 h-28 rounded-full bg-gradient-to-br from-[#e94560] to-[#533483] flex items-center justify-center text-3xl font-bold text-white shadow-xl select-none">
-          MR
+        <div className="w-36 h-36 rounded-full overflow-hidden shadow-xl ring-2 ring-[#e94560]/40">
+          <img
+            src={avatarImg}
+            alt={`${cvData.name.first} ${cvData.name.last}`}
+            className="h-full w-full object-cover"
+          />
         </div>
         <div className="text-center">
           <p className="text-xs text-gray-500 mt-1">{t('nav.dob')}: {cvData.contact.dob}</p>
@@ -114,7 +125,15 @@ export default function Sidebar() {
                   {item.value}
                 </a>
               ) : (
-                <span className="text-xs text-gray-300 break-all">{item.value}</span>
+                <span className="text-xs text-gray-300 min-w-0 break-words block">
+                  {item.value}
+                  {'secondLine' in item && item.secondLine ? (
+                    <>
+                      <br />
+                      {item.secondLine}
+                    </>
+                  ) : null}
+                </span>
               )}
             </motion.li>
           ))}
@@ -142,6 +161,8 @@ export default function Sidebar() {
           ))}
         </ul>
       </motion.section>
+
+      <Education variant="sidebar" />
 
       {/* Hobby */}
       <motion.section

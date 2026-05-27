@@ -67,15 +67,16 @@ const en = {
     'lang.english': 'English',
 
     // Hobby
-    'hobby.film': 'Film Editing & Recording',
+    'hobby.film': 'Create & Edit Films',
     'hobby.rpg': 'RPG',
     'hobby.yt': 'YouTube',
-    'hobby.books': 'Books & Audiobooks',
+    'hobby.books': 'Books',
 
     // UI
     'btn.pdf': 'Export PDF',
     'btn.lang': 'PL',
     'nav.dob': 'Date of birth',
+    'contact.street': 'st. Ks. Skargi 29B',
 
     // GDPR
     gdpr: 'I consent to the processing of my personal data for the purposes necessary to carry out the recruitment process in accordance with Regulation (EU) 2016/679 of the European Parliament and of the Council of April 27, 2016 (GDPR).',

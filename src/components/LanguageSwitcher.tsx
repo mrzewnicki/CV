@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 
 function FlagPL({ className }: { className?: string }) {
   return (
@@ -38,12 +37,12 @@ function FlagIcon({ lang }: { lang: 'pl' | 'en' }) {
 
 export default function LanguageSwitcher() {
   const { i18n, t } = useTranslation();
-  const navigate = useNavigate();
   const isEnglish = i18n.language.startsWith('en');
   const targetLang = isEnglish ? 'pl' : 'en';
 
   const toggle = () => {
-    navigate(`/${targetLang}`);
+    void i18n.changeLanguage(targetLang);
+    document.documentElement.lang = targetLang;
   };
 
   return (

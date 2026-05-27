@@ -36,12 +36,11 @@ export const cvData = {
   contact: {
     phone: '509 891 358',
     email: 'mateusz.rzewnicki@wp.pl',
-    linkedin: 'https://linkedin.com/in/mateusz-rzewnicki',
+    linkedin: 'https://www.linkedin.com/in/mateusz-rzewnicki-16487616b',
     linkedinHandle: '/mateusz-rzewnicki',
     github: 'https://github.com/mrzewnicki',
     githubHandle: '/mrzewnicki',
     address: 'Poland, Żyrardów 96-300',
-    street: 'st. Ks. Skargi 29B',
     dob: '16.05.1996',
   },
   workExperience: [
@@ -179,7 +178,7 @@ export const cvData = {
   ],
 
   hobby: [
-    { key: 'hobby.film', detail: 'OBS, Adobe Premiere, After Effects, DaVinci Resolve' },
+    { key: 'hobby.film', detail: 'OBS, DaVinci Resolve' },
     { key: 'hobby.rpg', detail: 'Pen & Paper' },
     { key: 'hobby.yt', detail: '/DrakaPelnaGeba' },
     { key: 'hobby.books', detail: 'Stephen King, Dan Abnett' },

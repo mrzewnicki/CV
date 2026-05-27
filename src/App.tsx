@@ -4,7 +4,6 @@ import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import WorkExperience from './components/WorkExperience';
 import ProjectExperience from './components/ProjectExperience';
-import Education from './components/Education';
 import SkillsGrid from './components/SkillsGrid';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import PDFExportButton from './components/PDFExportButton';
@@ -29,17 +28,16 @@ export default function App({ languagePreset = false }: AppProps) {
       >
         <div className="flex flex-col md:flex-row">
           {/* Left sidebar */}
-          <div className="md:w-[30%] w-full">
+          <div className="md:w-[25%] w-full">
             <Sidebar />
           </div>
 
           {/* Right main content */}
-          <div className="md:w-[70%] w-full bg-[#16213e] flex flex-col">
+          <div className="md:w-[75%] w-full bg-[#16213e] flex flex-col">
             <Header />
             <div className="flex flex-col gap-10 px-10 pt-4 pb-10">
               <WorkExperience />
               <ProjectExperience />
-              <Education />
               <SkillsGrid />
 
               {/* GDPR */}

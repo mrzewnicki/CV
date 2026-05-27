@@ -4,10 +4,12 @@ import {
   Text,
   View,
   Link,
+  Image,
   StyleSheet,
   Font,
 } from '@react-pdf/renderer';
 import { cvData } from '../data/cv';
+import avatarImg from '../assets/avatar.png';
 
 Font.register({
   family: 'Helvetica',
@@ -26,7 +28,7 @@ const colors = {
   purple: '#533483',
 };
 
-const SIDEBAR_WIDTH = '30%';
+const SIDEBAR_WIDTH = '25%';
 
 const styles = StyleSheet.create({
   page: {
@@ -55,20 +57,13 @@ const styles = StyleSheet.create({
   },
 
   // Sidebar elements
-  initialsCircle: {
-    width: 70,
-    height: 70,
-    borderRadius: 35,
-    backgroundColor: colors.accent,
-    alignItems: 'center',
-    justifyContent: 'center',
+  avatar: {
+    width: 90,
+    height: 90,
+    borderRadius: 45,
     alignSelf: 'center',
     marginBottom: 4,
-  },
-  initialsText: {
-    color: colors.white,
-    fontSize: 22,
-    fontFamily: 'Helvetica-Bold',
+    objectFit: 'cover',
   },
   sectionLabel: {
     fontSize: 7,
@@ -122,6 +117,9 @@ const styles = StyleSheet.create({
   hobbyItem: { marginBottom: 5 },
   hobbyTitle: { fontSize: 8, color: colors.lightGray, fontFamily: 'Helvetica-Bold' },
   hobbyDetail: { fontSize: 7, color: colors.mutedGray },
+  sidebarEduItem: { marginBottom: 6 },
+  sidebarEduSchool: { fontSize: 7, color: colors.lightGray, fontFamily: 'Helvetica-Bold', lineHeight: 1.35 },
+  sidebarEduPeriod: { fontSize: 7, color: colors.accent, marginTop: 2 },
 
   // Main section elements
   headerBlock: {
@@ -299,9 +297,7 @@ function PdfSidebar({ t }: { t: (key: string) => string }) {
     <>
       {/* Initials */}
       <View style={{ alignItems: 'center', marginBottom: 8 }}>
-        <View style={styles.initialsCircle}>
-          <Text style={styles.initialsText}>MR</Text>
-        </View>
+        <Image src={avatarImg} style={styles.avatar} />
         <Text style={{ fontSize: 7, color: colors.mutedGray, marginTop: 4 }}>
           {t('nav.dob')}: {cvData.contact.dob}
         </Text>
@@ -337,7 +333,9 @@ function PdfSidebar({ t }: { t: (key: string) => string }) {
         <View style={styles.contactRow}>
           <View style={styles.contactBullet} />
           <Text style={styles.contactText}>
-            {cvData.contact.address}, {cvData.contact.street}
+            {cvData.contact.address}
+            {'\n'}
+            {t('contact.street')}
           </Text>
         </View>
       </View>
@@ -349,6 +347,17 @@ function PdfSidebar({ t }: { t: (key: string) => string }) {
           <View key={lang.langKey} style={styles.langRow}>
             <Text style={styles.langName}>{t(lang.langKey)}</Text>
             <Text style={styles.langBadge}>{lang.level}</Text>
+          </View>
+        ))}
+      </View>
+
+      {/* Education */}
+      <View>
+        <Text style={styles.sectionLabel}>{t('section.education')}</Text>
+        {cvData.education.map((edu) => (
+          <View key={edu.schoolKey} style={styles.sidebarEduItem}>
+            <Text style={styles.sidebarEduSchool}>{t(edu.schoolKey)}</Text>
+            <Text style={styles.sidebarEduPeriod}>{edu.period}</Text>
           </View>
         ))}
       </View>
@@ -422,20 +431,6 @@ function PdfMainContent({ t }: { t: (key: string) => string }) {
                 {p.link && (
                   <Link src={p.link} style={styles.projectLink}>{p.link}</Link>
                 )}
-              </View>
-            ))}
-          </View>
-
-          {/* Education */}
-          <View>
-            <Text style={styles.mainSectionLabel}>{t('section.education')}</Text>
-            {cvData.education.map((edu) => (
-              <View key={edu.schoolKey} style={styles.eduRow}>
-                <View style={styles.eduDot} />
-                <View>
-                  <Text style={styles.eduSchool}>{t(edu.schoolKey)}</Text>
-                  <Text style={styles.eduPeriod}>{edu.period}</Text>
-                </View>
               </View>
             ))}
           </View>

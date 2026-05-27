@@ -67,15 +67,16 @@ const pl = {
     'lang.english': 'Angielski',
 
     // Hobby
-    'hobby.film': 'Montaż i nagrywanie filmów',
+    'hobby.film': 'Montaż filmów',
     'hobby.rpg': 'RPG',
     'hobby.yt': 'YouTube',
-    'hobby.books': 'Książki i audiobooki',
+    'hobby.books': 'Książki',
 
     // UI
     'btn.pdf': 'Eksportuj PDF',
     'btn.lang': 'EN',
     'nav.dob': 'Data urodzenia',
+    'contact.street': 'ul. Ks. Skargi 29B',
 
     // GDPR
     gdpr: 'Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. (RODO).',
