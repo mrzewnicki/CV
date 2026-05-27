@@ -46,7 +46,7 @@ const pl = {
     'project.motorola.desc': 'Projektowanie i rozwój platformy formularzy serwisowych dla Motorola i Cordon Group Poland.',
 
     // Education
-    'edu.wsisiz': 'Wyższa Szkoła Informatyki Stosowanej i Zarządzania — spec. Inżynieria Internetu',
+    'edu.wsisiz': 'Wyższa Warszawska Szkoła Informatyki — spec. Inżynieria Internetu',
     'edu.secondary': 'Technikum Informatyczne, Wiskitki (Zespół Szkół im. Marii Skłodowskiej-Curie nr 3)',
 
     // Skills
@@ -63,6 +63,8 @@ const pl = {
     // Languages
     'lang.polish': 'Polski',
     'lang.english': 'Angielski',
+    'lang.level.native': 'Ojczysty',
+    'lang.level.b2': 'B2',
 
     // Hobby
     'hobby.film': 'Montaż filmów',

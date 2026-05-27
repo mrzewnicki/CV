@@ -169,7 +169,7 @@ export default function Sidebar() {
                   'cv-badge !text-[8px] !py-px !px-1.5',
                 )}
               >
-                {lang.level}
+                {t(lang.levelKey)}
               </span>
             </li>
           ))}

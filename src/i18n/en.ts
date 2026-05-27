@@ -63,6 +63,8 @@ const en = {
     // Languages
     'lang.polish': 'Polish',
     'lang.english': 'English',
+    'lang.level.native': 'Native',
+    'lang.level.b2': 'B2',
 
     // Hobby
     'hobby.film': 'Create & Edit Films',

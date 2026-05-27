@@ -165,8 +165,8 @@ export const cvData = {
   ] as SkillGroup[],
 
   languages: [
-    { langKey: 'lang.polish', level: 'Native' },
-    { langKey: 'lang.english', level: 'B2' },
+    { langKey: 'lang.polish', levelKey: 'lang.level.native' },
+    { langKey: 'lang.english', levelKey: 'lang.level.b2' },
   ],
 
   hobby: [

@@ -122,27 +122,27 @@
     transform: none;
   }
 
-  /* Print-safe two-column flow (avoids flex fragmentation in Chromium PDF) */
+  /* Print-safe two-column layout.
+     Use display:table so each column flows as an independent block —
+     Chromium paginates table-cell columns correctly without reordering sections. */
   [data-cv-layout='a4'] .cv-page-row {
-    display: grid !important;
-    grid-template-columns: 25% 1fr;
-    align-items: start;
+    display: table !important;
+    width: 100% !important;
+    table-layout: fixed !important;
   }
 
   [data-cv-layout='a4'] .cv-sidebar-col,
   [data-cv-layout='a4'] .cv-main-col {
-    width: auto !important;
-    max-width: none !important;
-    display: block;
+    display: table-cell !important;
+    vertical-align: top !important;
+  }
+
+  [data-cv-layout='a4'] .cv-sidebar-col {
+    width: 25% !important;
   }
 
   [data-cv-layout='a4'] .cv-main-col {
-    display: flex;
-    flex-direction: column;
-  }
-
-  [data-cv-layout='a4'] .cv-sidebar-col aside {
-    min-height: 100%;
+    width: 75% !important;
   }
 }
 
@@ -188,27 +188,25 @@
     overflow: visible !important;
   }
 
-  /* Print-safe grid (same as A4 capture) */
+  /* Same table layout for browser print */
   .cv-shell .cv-page-row {
-    display: grid !important;
-    grid-template-columns: 25% 1fr;
-    align-items: start !important;
-    min-height: auto !important;
+    display: table !important;
+    width: 100% !important;
+    table-layout: fixed !important;
   }
 
   .cv-shell .cv-sidebar-col,
   .cv-shell .cv-main-col {
-    width: auto !important;
-    max-width: none !important;
+    display: table-cell !important;
+    vertical-align: top !important;
+  }
+
+  .cv-shell .cv-sidebar-col {
+    width: 25% !important;
   }
 
   .cv-shell .cv-main-col {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  .cv-shell .cv-sidebar-col aside {
-    min-height: 297mm;
+    width: 75% !important;
   }
 
   .cv-card {
@@ -219,15 +217,9 @@
     display: none !important;
   }
 
-  /* Avoid break-inside on large blocks — causes role text to print after later sections */
-  .cv-role-item,
+  /* Only avoid breaks on small atomic units */
   .cv-project-card {
     break-inside: avoid;
     page-break-inside: avoid;
-  }
-
-  .cv-experience-company {
-    break-inside: auto;
-    page-break-inside: auto;
   }
 }

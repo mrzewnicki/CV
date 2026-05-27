@@ -337,7 +337,7 @@ function PdfSidebar({ t }: { t: (key: string) => string }) {
         {cvData.languages.map((lang) => (
           <View key={lang.langKey} style={styles.langRow}>
             <Text style={styles.langName}>{t(lang.langKey)}</Text>
-            <Text style={styles.langBadge}>{lang.level}</Text>
+            <Text style={styles.langBadge}>{t(lang.levelKey)}</Text>
           </View>
         ))}
       </View>
