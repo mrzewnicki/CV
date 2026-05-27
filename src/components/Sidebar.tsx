@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Mail, Phone, MapPin, Film, BookOpen, Video, Swords } from 'lucide-react';
+import { Mail, Phone, MapPin, Building2, Film, BookOpen, Video, Swords } from 'lucide-react';
 import { cvData } from '../data/cv';
 import avatarImg from '../assets/avatar.png';
 import Education from './Education';
@@ -61,6 +61,11 @@ export default function Sidebar() {
         icon: <MapPin size={iconSize} />,
         value: cvData.contact.address,
         secondLine: t('contact.street'),
+        href: undefined,
+      },
+      {
+        icon: <Building2 size={iconSize} />,
+        value: `${t('contact.taxId')}: ${cvData.contact.nip}`,
         href: undefined,
       },
     ],

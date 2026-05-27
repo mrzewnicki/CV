@@ -42,6 +42,7 @@ export const cvData = {
     githubHandle: '/mrzewnicki',
     address: 'Poland, Żyrardów 96-300',
     dob: '16.05.1996',
+    nip: '5291865930',
   },
   workExperience: [
     {
@@ -49,7 +50,7 @@ export const cvData = {
       roles: [
         {
           titleKey: 'job.fenergo.dev',
-          period: '01.2026 – 06.2026',
+          period: '01.2026 - 06.2026',
           bullets: [
             'job.fenergo.dev.bullet1',
             'job.fenergo.dev.bullet2',
@@ -64,7 +65,7 @@ export const cvData = {
       roles: [
         {
           titleKey: 'job.kpmg.lead',
-          period: '11.2023 – 08.2025',
+          period: '11.2023 - 08.2025',
           bullets: [
             'job.kpmg.lead.bullet1',
             'job.kpmg.lead.bullet2',
@@ -73,7 +74,7 @@ export const cvData = {
         },
         {
           titleKey: 'job.kpmg.dev',
-          period: '03.2023 – 11.2023',
+          period: '03.2023 - 11.2023',
           bullets: [
             'job.kpmg.dev.bullet1',
             'job.kpmg.dev.bullet2',
@@ -87,7 +88,7 @@ export const cvData = {
       roles: [
         {
           titleKey: 'job.sbe.mid',
-          period: '11.2020 – 03.2023',
+          period: '11.2020 - 03.2023',
           bullets: [
             'job.sbe.mid.bullet1',
             'job.sbe.mid.bullet2',
@@ -96,7 +97,7 @@ export const cvData = {
         },
         {
           titleKey: 'job.sbe.junior',
-          period: '02.2019 – 11.2020',
+          period: '02.2019 - 11.2020',
           bullets: [
             'job.sbe.junior.bullet1',
             'job.sbe.junior.bullet2',
@@ -110,7 +111,7 @@ export const cvData = {
   projects: [
     {
       nameKey: 'project.motorola.name',
-      period: '03.2024 – 08.2025',
+      period: '03.2024 - 08.2025',
       techStack: ['Blazor', 'OracleDB', 'Linux'],
       link: 'https://forms.sbe-online.pl/',
       descriptionKey: 'project.motorola.desc',
@@ -120,11 +121,11 @@ export const cvData = {
   education: [
     {
       schoolKey: 'edu.wsisiz',
-      period: '2017 – 2021',
+      period: '2017 - 2021',
     },
     {
       schoolKey: 'edu.secondary',
-      period: '2012 – 2016',
+      period: '2012 - 2016',
     },
   ] as Education[],
 

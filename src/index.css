@@ -121,6 +121,29 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14);
     transform: none;
   }
+
+  /* Print-safe two-column flow (avoids flex fragmentation in Chromium PDF) */
+  [data-cv-layout='a4'] .cv-page-row {
+    display: grid !important;
+    grid-template-columns: 25% 1fr;
+    align-items: start;
+  }
+
+  [data-cv-layout='a4'] .cv-sidebar-col,
+  [data-cv-layout='a4'] .cv-main-col {
+    width: auto !important;
+    max-width: none !important;
+    display: block;
+  }
+
+  [data-cv-layout='a4'] .cv-main-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  [data-cv-layout='a4'] .cv-sidebar-col aside {
+    min-height: 100%;
+  }
 }
 
 @media print {
@@ -165,10 +188,27 @@
     overflow: visible !important;
   }
 
-  /* Sidebar must fill the full page height */
-  .cv-shell > div {
-    align-items: stretch !important;
-    min-height: 297mm !important;
+  /* Print-safe grid (same as A4 capture) */
+  .cv-shell .cv-page-row {
+    display: grid !important;
+    grid-template-columns: 25% 1fr;
+    align-items: start !important;
+    min-height: auto !important;
+  }
+
+  .cv-shell .cv-sidebar-col,
+  .cv-shell .cv-main-col {
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  .cv-shell .cv-main-col {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .cv-shell .cv-sidebar-col aside {
+    min-height: 297mm;
   }
 
   .cv-card {
@@ -179,9 +219,15 @@
     display: none !important;
   }
 
-  .cv-experience-item,
+  /* Avoid break-inside on large blocks — causes role text to print after later sections */
+  .cv-role-item,
   .cv-project-card {
     break-inside: avoid;
     page-break-inside: avoid;
+  }
+
+  .cv-experience-company {
+    break-inside: auto;
+    page-break-inside: auto;
   }
 }

@@ -12,7 +12,7 @@ export default function WorkExperience() {
       <SectionTitle title={t('section.work')} />
       <div className={layoutClass(isA4, 'space-y-4', 'space-y-3')}>
         {cvData.workExperience.map((exp) => (
-          <div key={exp.company} className="cv-experience-item">
+          <div key={exp.company} className="cv-experience-company">
             <h3
               className={layoutClass(
                 isA4,
@@ -30,7 +30,7 @@ export default function WorkExperience() {
               )}
             >
               {exp.roles.map((role) => (
-                <div key={role.titleKey} className="relative">
+                <div key={role.titleKey} className="cv-role-item relative">
                   <span
                     className={layoutClass(
                       isA4,

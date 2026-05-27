@@ -33,7 +33,8 @@ app.get('/pdf', async (req, res) => {
 
     await page.waitForSelector('[data-cv-layout="a4"]', { timeout: 15_000 });
     await page.evaluate(() => document.fonts.ready);
-    await new Promise((r) => setTimeout(r, 200));
+    // Allow grid reflow after A4 layout class applies
+    await new Promise((r) => setTimeout(r, 400));
 
     const pdfBuffer = await page.pdf({
       format: 'A4',

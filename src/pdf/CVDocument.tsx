@@ -323,6 +323,12 @@ function PdfSidebar({ t }: { t: (key: string) => string }) {
             {t('contact.street')}
           </Text>
         </View>
+        <View style={styles.contactRow}>
+          <View style={styles.contactBullet} />
+          <Text style={styles.contactText}>
+            {t('contact.taxId')}: {cvData.contact.nip}
+          </Text>
+        </View>
       </View>
 
       {/* Languages */}

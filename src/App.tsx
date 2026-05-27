@@ -36,19 +36,25 @@ export default function App({ languagePreset = false }: AppProps) {
         <div
           className={layoutClass(
             isA4,
-            'flex flex-col md:flex-row',
-            'flex',
+            'cv-page-row flex flex-col md:flex-row',
+            'cv-page-row grid grid-cols-[25%_1fr] items-start',
           )}
         >
-          <div className={layoutClass(isA4, 'md:w-[25%] w-full', 'w-[25%]')}>
+          <div
+            className={layoutClass(
+              isA4,
+              'cv-sidebar-col md:w-[25%] w-full',
+              'cv-sidebar-col min-w-0',
+            )}
+          >
             <Sidebar />
           </div>
 
           <div
             className={layoutClass(
               isA4,
-              'md:w-[75%] w-full bg-cv-main flex flex-col',
-              'w-[75%] bg-cv-main flex flex-col',
+              'cv-main-col md:w-[75%] w-full bg-cv-main flex flex-col min-w-0',
+              'cv-main-col bg-cv-main flex flex-col min-w-0',
             )}
           >
             <Header />
