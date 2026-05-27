@@ -71,7 +71,7 @@ const pl = {
     'hobby.books': 'Książki',
 
     // UI
-    'btn.pdf': 'Eksportuj PDF',
+    'btn.pdf': 'PDF',
     'btn.lang': 'EN',
     'nav.dob': 'Data urodzenia',
     'contact.street': 'ul. Ks. Skargi 29B',

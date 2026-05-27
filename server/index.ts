@@ -10,7 +10,7 @@ app.use(cors({ origin: VITE_URL }));
 
 app.get('/pdf', async (req, res) => {
   const lang = req.query.lang === 'pl' ? 'pl' : 'en';
-  const targetUrl = `${VITE_URL}/${lang}`;
+  const targetUrl = `${VITE_URL}/${lang}?pdf=1`;
 
   let browser;
   try {
@@ -31,8 +31,9 @@ app.get('/pdf', async (req, res) => {
 
     await page.goto(targetUrl, { waitUntil: 'networkidle0', timeout: 30_000 });
 
-    // Wait for fonts and images to be fully rendered
+    await page.waitForSelector('[data-cv-layout="a4"]', { timeout: 15_000 });
     await page.evaluate(() => document.fonts.ready);
+    await new Promise((r) => setTimeout(r, 200));
 
     const pdfBuffer = await page.pdf({
       format: 'A4',

@@ -71,7 +71,7 @@ const en = {
     'hobby.books': 'Books',
 
     // UI
-    'btn.pdf': 'Export PDF',
+    'btn.pdf': 'PDF',
     'btn.lang': 'PL',
     'nav.dob': 'Date of birth',
     'contact.street': 'st. Ks. Skargi 29B',

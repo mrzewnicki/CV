@@ -14,8 +14,8 @@ npm run dev
 
 ### PDF export
 
-- **Local (`npm run dev`)**: Download uses the Puppeteer server. Start it in a second terminal: `npm run server`.
-- **Production (GitHub Pages)**: Download serves pre-built files from `public/pdf/` (`Mateusz_Rzewnicki_CV_EN.pdf`, `Mateusz_Rzewnicki_CV_PL.pdf`) based on the current language.
+- **Local (`npm run dev`)**: The page uses a full-width web layout. On Export, it briefly switches to A4 sizing, Puppeteer captures `/{lang}?pdf=1`, then the web layout returns. Start the server in a second terminal: `npm run server`.
+- **Production (GitHub Pages)**: Full-width web layout; download serves pre-built files from `public/pdf/` based on the current language.
 
 After you change the CV layout or content, regenerate PDFs locally (with the server running), then replace the files in `public/pdf/` before deploying.
 
