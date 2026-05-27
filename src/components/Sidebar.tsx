@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { cvData } from '../data/cv';
 import avatarImg from '../assets/avatar.png';
 import Education from './Education';
+import SidebarSectionTitle from './SidebarSectionTitle';
 
 function LinkedInIcon({ size = 14 }: { size?: number }) {
   return (
@@ -42,11 +43,11 @@ const hobbyIcons: Record<string, React.ReactNode> = {
 };
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 12 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.08, duration: 0.45 },
+    transition: { delay: i * 0.04, duration: 0.2 },
   }),
 };
 
@@ -86,46 +87,49 @@ export default function Sidebar() {
   );
 
   return (
-    <aside className="bg-cv-sidebar text-gray-300 flex flex-col gap-8 p-8 min-h-full">
-      {/* Avatar / Initials */}
+    <aside className="bg-cv-sidebar text-cv-text-secondary flex flex-col gap-6 p-6 min-h-full">
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        className="flex flex-col items-center gap-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
+        className="flex flex-col items-center gap-3"
       >
-        <div className="w-36 h-36 rounded-full overflow-hidden shadow-xl ring-2 ring-cv-accent/40">
+        <div className="w-28 h-28 rounded-full overflow-hidden ring-1 ring-cv-border">
           <img
             src={avatarImg}
             alt={`${cvData.name.first} ${cvData.name.last}`}
             className="h-full w-full object-cover"
           />
         </div>
-        <div className="text-center">
-          <p className="text-xs text-gray-500 mt-1">{t('nav.dob')}: {cvData.contact.dob}</p>
-        </div>
+        <p className="text-xs text-cv-text-muted">
+          {t('nav.dob')}: {cvData.contact.dob}
+        </p>
       </motion.div>
 
-      {/* Contact */}
       <motion.section initial="hidden" animate="visible">
-        <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-cv-accent mb-4 border-b border-cv-accent/30 pb-2">
-          {t('section.contact')}
-        </h3>
-        <ul className="space-y-3">
+        <SidebarSectionTitle title={t('section.contact')} />
+        <ul className="space-y-2.5">
           {contactItems.map((item, i) => (
-            <motion.li key={i} custom={i} variants={fadeUp} initial="hidden" animate="visible" className="flex items-start gap-2">
-              <span className="mt-0.5 text-cv-accent flex-shrink-0">{item.icon}</span>
+            <motion.li
+              key={i}
+              custom={i}
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              className="flex items-start gap-2"
+            >
+              <span className="mt-0.5 text-cv-text-muted flex-shrink-0">{item.icon}</span>
               {item.href ? (
                 <a
                   href={item.href}
                   target={item.href.startsWith('http') ? '_blank' : undefined}
                   rel="noopener noreferrer"
-                  className="text-xs text-gray-300 hover:text-cv-accent transition-colors break-all"
+                  className="text-xs text-cv-text-secondary hover:text-cv-accent transition-colors duration-200 break-all"
                 >
                   {item.value}
                 </a>
               ) : (
-                <span className="text-xs text-gray-300 min-w-0 break-words block">
+                <span className="text-xs text-cv-text-secondary min-w-0 break-words block">
                   {item.value}
                   {'secondLine' in item && item.secondLine ? (
                     <>
@@ -140,23 +144,18 @@ export default function Sidebar() {
         </ul>
       </motion.section>
 
-      {/* Languages */}
       <motion.section
-        initial={{ opacity: 0, x: -20 }}
+        initial={{ opacity: 0, x: -12 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.2 }}
       >
-        <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-cv-accent mb-4 border-b border-cv-accent/30 pb-2">
-          {t('section.languages')}
-        </h3>
+        <SidebarSectionTitle title={t('section.languages')} />
         <ul className="space-y-2">
           {cvData.languages.map((lang) => (
             <li key={lang.langKey} className="flex items-center justify-between text-xs">
-              <span className="text-gray-300">{t(lang.langKey)}</span>
-              <span className="px-2 py-0.5 rounded bg-cv-accent/20 text-cv-accent font-semibold text-[10px] tracking-wider">
-                {lang.level}
-              </span>
+              <span className="text-cv-text-secondary">{t(lang.langKey)}</span>
+              <span className="cv-badge text-[10px] py-0.5">{lang.level}</span>
             </li>
           ))}
         </ul>
@@ -164,17 +163,14 @@ export default function Sidebar() {
 
       <Education variant="sidebar" />
 
-      {/* Hobby */}
       <motion.section
-        initial={{ opacity: 0, x: -20 }}
+        initial={{ opacity: 0, x: -12 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.4, delay: 0.1 }}
+        transition={{ duration: 0.2, delay: 0.05 }}
       >
-        <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-cv-accent mb-4 border-b border-cv-accent/30 pb-2">
-          {t('section.hobby')}
-        </h3>
-        <ul className="space-y-3">
+        <SidebarSectionTitle title={t('section.hobby')} />
+        <ul className="space-y-2.5">
           {cvData.hobby.map((h, i) => (
             <motion.li
               key={h.key}
@@ -185,10 +181,10 @@ export default function Sidebar() {
               viewport={{ once: true }}
               className="flex items-start gap-2"
             >
-              <span className="mt-0.5 text-cv-accent flex-shrink-0">{hobbyIcons[h.key]}</span>
+              <span className="mt-0.5 text-cv-text-muted flex-shrink-0">{hobbyIcons[h.key]}</span>
               <div>
-                <p className="text-xs font-semibold text-gray-200">{t(h.key)}</p>
-                <p className="text-[11px] text-gray-500">{h.detail}</p>
+                <p className="text-xs font-medium text-cv-text-primary">{t(h.key)}</p>
+                <p className="text-[11px] text-cv-text-muted">{h.detail}</p>
               </div>
             </motion.li>
           ))}

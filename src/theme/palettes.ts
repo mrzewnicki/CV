@@ -8,9 +8,34 @@ export type CvPalette = {
   accent: string;
   accentHover: string;
   secondary: string;
+  textPrimary?: string;
+  textSecondary?: string;
+  textMuted?: string;
+  border?: string;
+  borderSubtle?: string;
+  accentSoft?: string;
+  timelineLine?: string;
 };
 
 export const palettes = {
+  'modern-enterprise': {
+    id: 'modern-enterprise',
+    name: 'Modern Enterprise Tech',
+    page: '#0F172A',
+    sidebar: '#111827',
+    main: '#1E293B',
+    surface: '#273449',
+    accent: '#3B82F6',
+    accentHover: '#2563EB',
+    secondary: '#3B82F6',
+    textPrimary: '#E5E7EB',
+    textSecondary: '#9CA3AF',
+    textMuted: '#6B7280',
+    border: '#1F2937',
+    borderSubtle: '#2A3441',
+    accentSoft: 'rgba(59, 130, 246, 0.12)',
+    timelineLine: '#243041',
+  },
   'granat-grafit': {
     id: 'granat-grafit',
     name: 'Granat, grafit, zieleń, błękit',

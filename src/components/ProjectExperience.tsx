@@ -11,40 +11,28 @@ export default function ProjectExperience() {
     <section>
       <SectionTitle title={t('section.projects')} />
       <motion.div
-        className="space-y-4"
-        initial={{ opacity: 0, y: 20 }}
+        className="space-y-3"
+        initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.2 }}
       >
         {cvData.projects.map((p) => (
-          <div
-            key={p.nameKey}
-            className="bg-cv-surface/40 border border-cv-accent/20 rounded-xl p-3"
-          >
-            <div className="flex flex-wrap items-start justify-between gap-2 mb-1.5">
-              <h3 className="font-bold text-gray-100 text-sm">{t(p.nameKey)}</h3>
-              <span className="text-xs text-cv-accent font-mono bg-cv-accent/10 px-2 py-0.5 rounded flex-shrink-0">
-                {p.period}
-              </span>
+          <div key={p.nameKey} className="cv-card cv-project-card p-4">
+            <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
+              <h3 className="text-base font-semibold text-cv-text-primary">{t(p.nameKey)}</h3>
+              <span className="cv-date-badge">{p.period}</span>
             </div>
-            <p className="text-xs text-gray-400 mb-2">{t(p.descriptionKey)}</p>
-            <div className="flex flex-wrap gap-2 mb-2">
-              {p.techStack.map((tech) => (
-                <span
-                  key={tech}
-                  className="text-[11px] px-2.5 py-1 rounded-md bg-cv-surface/60 text-gray-300 border border-cv-accent/15"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+            <p className="text-sm leading-relaxed text-cv-text-secondary mb-1.5">
+              {t(p.descriptionKey)}
+            </p>
+            <p className="text-[0.75rem] text-cv-text-muted">{p.techStack.join(' · ')}</p>
             {p.link && (
               <a
                 href={p.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-xs text-cv-accent hover:text-cv-accent-hover transition-colors"
+                className="inline-flex items-center gap-1 mt-2 text-xs text-cv-accent hover:text-cv-accent-hover transition-colors duration-200"
               >
                 <ExternalLink size={12} />
                 {p.link}

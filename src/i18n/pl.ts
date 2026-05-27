@@ -1,5 +1,8 @@
 const pl = {
   translation: {
+    'header.role': 'Full-Stack Developer',
+    'header.meta': '{{years}}+ lat doświadczenia · .NET · TypeScript · Azure · AWS',
+
     // Section headers
     'section.work': 'Doświadczenie zawodowe',
     'section.projects': 'Doświadczenie projektowe',

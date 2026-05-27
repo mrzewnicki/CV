@@ -1,26 +1,33 @@
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { cvData } from '../data/cv';
+import { yearsOfExperience } from '../utils/experienceYears';
 
 export default function Header() {
+  const { t } = useTranslation();
+  const experienceYears = useMemo(
+    () => yearsOfExperience(cvData.workExperience.flatMap((exp) => exp.roles)),
+    [],
+  );
   return (
-    <div className="bg-gradient-to-r from-cv-surface to-cv-main px-6 py-6 border-b border-cv-accent/30">
+    <header className="border-b border-cv-border bg-cv-main px-8 py-5">
       <motion.div
-        initial={{ opacity: 0, y: -30 }}
+        initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
       >
-        <motion.h1
-          className="text-5xl font-black tracking-tight text-white leading-none"
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-        >
-          <span className="block text-gray-400 text-2xl font-light tracking-[0.15em] uppercase mb-1">
-            {cvData.name.first}
-          </span>
-          <span className="text-cv-accent">{cvData.name.last.toUpperCase()}</span>
-        </motion.h1>
+        <p className="text-lg font-medium text-cv-text-secondary mb-0.5">{cvData.name.first}</p>
+        <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold tracking-[-0.04em] leading-none text-cv-text-primary">
+          {cvData.name.last}
+        </h1>
+        <p className="mt-2 text-[1.2rem] font-medium leading-snug text-cv-text-secondary">
+          {t('header.role')}
+        </p>
+        <p className="mt-1 text-sm text-cv-text-muted">
+          {t('header.meta', { years: experienceYears })}
+        </p>
       </motion.div>
-    </div>
+    </header>
   );
 }

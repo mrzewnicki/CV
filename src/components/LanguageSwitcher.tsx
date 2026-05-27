@@ -48,7 +48,7 @@ export default function LanguageSwitcher() {
   return (
     <button
       onClick={toggle}
-      className="fixed top-4 right-4 z-50 flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold tracking-wider bg-white/10 backdrop-blur border border-white/20 text-white hover:bg-white/20 transition-all shadow-lg"
+      className="cv-print-hide fixed top-4 right-4 z-50 flex items-center gap-2 px-4 py-2 rounded-[10px] text-sm font-medium bg-cv-sidebar border border-cv-border text-cv-text-primary hover:border-cv-accent-soft transition-colors duration-200"
       aria-label={targetLang === 'pl' ? 'Switch to Polish' : 'Switch to English'}
     >
       <FlagIcon lang={targetLang} />

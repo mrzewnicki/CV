@@ -1,17 +1,9 @@
 import { palettes, type PaletteId } from './palettes';
-
-const CSS_VARS = [
-  'page',
-  'sidebar',
-  'main',
-  'surface',
-  'accent',
-  'accent-hover',
-  'secondary',
-] as const;
+import { resolveThemeTokens } from './tokens';
 
 export function applyPalette(id: PaletteId) {
   const palette = palettes[id];
+  const tokens = resolveThemeTokens(palette);
   const root = document.documentElement;
 
   root.style.setProperty('--cv-page', palette.page);
@@ -21,9 +13,12 @@ export function applyPalette(id: PaletteId) {
   root.style.setProperty('--cv-accent', palette.accent);
   root.style.setProperty('--cv-accent-hover', palette.accentHover);
   root.style.setProperty('--cv-secondary', palette.secondary);
+  root.style.setProperty('--cv-text-primary', tokens.textPrimary);
+  root.style.setProperty('--cv-text-secondary', tokens.textSecondary);
+  root.style.setProperty('--cv-text-muted', tokens.textMuted);
+  root.style.setProperty('--cv-border', tokens.border);
+  root.style.setProperty('--cv-border-subtle', tokens.borderSubtle);
+  root.style.setProperty('--cv-accent-soft', tokens.accentSoft);
+  root.style.setProperty('--cv-timeline-line', tokens.timelineLine);
   root.dataset.cvPalette = id;
-}
-
-export function getCssVarNames() {
-  return CSS_VARS.map((v) => `--cv-${v}`);
 }

@@ -11,6 +11,7 @@ import {
 import { cvData } from '../data/cv';
 import avatarImg from '../assets/avatar.png';
 import { paletteToPdfColors } from '../theme/pdfColors';
+import { yearsOfExperience } from '../utils/experienceYears';
 
 Font.register({
   family: 'Helvetica',
@@ -57,12 +58,11 @@ const styles = StyleSheet.create({
     objectFit: 'cover',
   },
   sectionLabel: {
-    fontSize: 7,
+    fontSize: 8,
     fontFamily: 'Helvetica-Bold',
-    color: colors.accent,
-    textTransform: 'uppercase',
-    letterSpacing: 1.5,
-    borderBottom: `0.5px solid ${colors.accent}`,
+    color: colors.lightGray,
+    letterSpacing: 0.2,
+    borderBottom: `0.5px solid ${colors.border}`,
     paddingBottom: 3,
     marginBottom: 6,
   },
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     width: 4,
     height: 4,
     borderRadius: 2,
-    backgroundColor: colors.accent,
+    backgroundColor: colors.mutedGray,
     marginTop: 2.5,
     flexShrink: 0,
   },
@@ -87,8 +87,8 @@ const styles = StyleSheet.create({
   },
   contactLink: {
     fontSize: 8,
-    color: colors.accentLight,
-    textDecoration: 'underline',
+    color: colors.secondaryGray,
+    textDecoration: 'none',
   },
   langRow: {
     flexDirection: 'row',
@@ -99,65 +99,66 @@ const styles = StyleSheet.create({
   langName: { fontSize: 8, color: colors.lightGray },
   langBadge: {
     fontSize: 7,
-    color: colors.accent,
-    backgroundColor: `${colors.accent}22`,
+    color: colors.secondaryGray,
+    backgroundColor: 'rgba(255,255,255,0.04)',
+    borderWidth: 0.5,
+    borderColor: 'rgba(255,255,255,0.06)',
     paddingHorizontal: 5,
     paddingVertical: 2,
-    borderRadius: 4,
+    borderRadius: 8,
   },
   hobbyItem: { marginBottom: 5 },
   hobbyTitle: { fontSize: 8, color: colors.lightGray, fontFamily: 'Helvetica-Bold' },
   hobbyDetail: { fontSize: 7, color: colors.mutedGray },
   sidebarEduItem: { marginBottom: 6 },
   sidebarEduSchool: { fontSize: 7, color: colors.lightGray, fontFamily: 'Helvetica-Bold', lineHeight: 1.35 },
-  sidebarEduPeriod: { fontSize: 7, color: colors.accent, marginTop: 2 },
+  sidebarEduPeriod: { fontSize: 7, color: colors.mutedGray, marginTop: 2 },
 
   // Main section elements
   headerBlock: {
-    backgroundColor: colors.darkBlue,
-    padding: 16,
-    marginBottom: 4,
-    borderRadius: 4,
+    backgroundColor: colors.mainBg,
+    paddingBottom: 10,
+    marginBottom: 8,
+    borderBottom: `0.5px solid ${colors.border}`,
   },
   nameFirst: {
-    fontSize: 14,
-    color: colors.lightGray,
-    letterSpacing: 2,
+    fontSize: 11,
+    color: colors.secondaryGray,
     fontFamily: 'Helvetica',
-    textTransform: 'uppercase',
   },
   nameLast: {
-    fontSize: 28,
-    color: colors.accent,
+    fontSize: 24,
+    color: colors.lightGray,
     fontFamily: 'Helvetica-Bold',
     letterSpacing: -0.5,
+    marginTop: 2,
   },
-  tagRow: { flexDirection: 'row', gap: 6, marginTop: 6, flexWrap: 'wrap' },
-  tag: {
-    fontSize: 7,
-    color: colors.accent,
-    borderWidth: 0.5,
-    borderColor: colors.accent,
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    borderRadius: 10,
+  heroRole: {
+    fontSize: 10,
+    color: colors.secondaryGray,
+    marginTop: 4,
+    fontFamily: 'Helvetica-Bold',
+  },
+  heroMeta: {
+    fontSize: 8,
+    color: colors.mutedGray,
+    marginTop: 3,
   },
 
   mainSectionLabel: {
-    fontSize: 7,
+    fontSize: 11,
     fontFamily: 'Helvetica-Bold',
-    color: colors.accent,
-    textTransform: 'uppercase',
-    letterSpacing: 1.5,
-    borderBottom: `0.5px solid ${colors.accent}`,
+    color: colors.lightGray,
+    letterSpacing: -0.2,
+    borderBottom: `0.5px solid ${colors.border}`,
     paddingBottom: 3,
     marginBottom: 8,
   },
   companyName: {
-    fontSize: 11,
+    fontSize: 10,
     fontFamily: 'Helvetica-Bold',
-    color: colors.accent,
-    marginBottom: 4,
+    color: colors.lightGray,
+    marginBottom: 3,
   },
   roleRow: {
     flexDirection: 'row',
@@ -173,11 +174,13 @@ const styles = StyleSheet.create({
   },
   rolePeriod: {
     fontSize: 7,
-    color: colors.accent,
-    backgroundColor: `${colors.accent}22`,
-    paddingHorizontal: 5,
+    color: colors.secondaryGray,
+    backgroundColor: 'rgba(59, 130, 246, 0.12)',
+    borderWidth: 0.5,
+    borderColor: 'rgba(59, 130, 246, 0.18)',
+    paddingHorizontal: 6,
     paddingVertical: 2,
-    borderRadius: 4,
+    borderRadius: 8,
     flexShrink: 0,
   },
   bullet: {
@@ -190,23 +193,24 @@ const styles = StyleSheet.create({
     width: 3,
     height: 3,
     borderRadius: 1.5,
-    backgroundColor: `${colors.accent}99`,
+    backgroundColor: colors.mutedGray,
     marginTop: 2.5,
     flexShrink: 0,
   },
   bulletText: {
     fontSize: 8,
-    color: colors.mutedGray,
+    color: colors.secondaryGray,
+    lineHeight: 1.5,
     flexShrink: 1,
   },
 
   projectCard: {
     borderWidth: 0.5,
-    borderColor: `${colors.accent}44`,
-    borderRadius: 6,
+    borderColor: colors.border,
+    borderRadius: 8,
     padding: 8,
     marginBottom: 6,
-    backgroundColor: `${colors.darkBlue}66`,
+    backgroundColor: colors.cardBg,
   },
   projectName: {
     fontSize: 9,
@@ -214,22 +218,12 @@ const styles = StyleSheet.create({
     color: colors.lightGray,
     marginBottom: 3,
   },
-  projectDesc: { fontSize: 8, color: colors.mutedGray, marginBottom: 5 },
-  techRow: { flexDirection: 'row', gap: 4, flexWrap: 'wrap', marginBottom: 5 },
-  techTag: {
-    fontSize: 7,
-    color: colors.lightGray,
-    backgroundColor: `${colors.darkBlue}99`,
-    borderWidth: 0.5,
-    borderColor: `${colors.accent}33`,
-    paddingHorizontal: 5,
-    paddingVertical: 2,
-    borderRadius: 3,
-  },
+  projectDesc: { fontSize: 8, color: colors.secondaryGray, marginBottom: 3, lineHeight: 1.5 },
+  projectTech: { fontSize: 7, color: colors.mutedGray, marginBottom: 4 },
   projectLink: {
     fontSize: 7,
-    color: colors.accentLight,
-    textDecoration: 'underline',
+    color: colors.accent,
+    textDecoration: 'none',
   },
 
   eduRow: { flexDirection: 'row', gap: 8, marginBottom: 8, alignItems: 'flex-start' },
@@ -237,45 +231,43 @@ const styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: `${colors.accent}44`,
+    backgroundColor: 'rgba(255,255,255,0.04)',
     marginTop: 1,
     flexShrink: 0,
     borderWidth: 1,
-    borderColor: colors.accent,
+    borderColor: 'rgba(255,255,255,0.06)',
   },
   eduSchool: { fontSize: 9, color: colors.lightGray, fontFamily: 'Helvetica-Bold' },
-  eduPeriod: { fontSize: 7, color: colors.accent, marginTop: 2 },
+  eduPeriod: { fontSize: 7, color: colors.mutedGray, marginTop: 2 },
 
   skillGroupTitle: {
-    fontSize: 7,
+    fontSize: 8,
     color: colors.mutedGray,
-    textTransform: 'uppercase',
-    letterSpacing: 1.2,
     marginBottom: 3,
     fontFamily: 'Helvetica-Bold',
   },
   skillTagsRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 3, marginBottom: 6 },
   skillTag: {
     fontSize: 7,
-    color: colors.lightGray,
-    backgroundColor: `${colors.darkBlue}99`,
+    color: colors.secondaryGray,
+    backgroundColor: 'rgba(255,255,255,0.04)',
     borderWidth: 0.5,
-    borderColor: `${colors.accent}33`,
+    borderColor: 'rgba(255,255,255,0.06)',
     paddingHorizontal: 5,
     paddingVertical: 2,
-    borderRadius: 3,
+    borderRadius: 8,
   },
   gdprText: {
     fontSize: 6.5,
     color: colors.mutedGray,
     marginTop: 8,
     borderTopWidth: 0.5,
-    borderTopColor: `${colors.accent}33`,
+    borderTopColor: colors.border,
     paddingTop: 6,
   },
   divider: {
     height: 0.5,
-    backgroundColor: `${colors.accent}22`,
+    backgroundColor: colors.border,
     marginVertical: 4,
   },
 });
@@ -369,17 +361,18 @@ function PdfSidebar({ t }: { t: (key: string) => string }) {
   );
 }
 
-function PdfMainContent({ t }: { t: (key: string) => string }) {
+function PdfMainContent({ t }: { t: (key: string, options?: Record<string, unknown>) => string }) {
+  const experienceYears = yearsOfExperience(
+    cvData.workExperience.flatMap((exp) => exp.roles),
+  );
+
   return (
     <>
       <View style={styles.headerBlock}>
             <Text style={styles.nameFirst}>{cvData.name.first}</Text>
-            <Text style={styles.nameLast}>{cvData.name.last.toUpperCase()}</Text>
-            <View style={styles.tagRow}>
-              {['Full-Stack Developer', 'Lead Developer', '.NET · React · Azure'].map((tag) => (
-                <Text key={tag} style={styles.tag}>{tag}</Text>
-              ))}
-            </View>
+            <Text style={styles.nameLast}>{cvData.name.last}</Text>
+            <Text style={styles.heroRole}>{t('header.role')}</Text>
+            <Text style={styles.heroMeta}>{t('header.meta', { years: experienceYears })}</Text>
           </View>
 
           {/* Work Experience */}
@@ -416,11 +409,7 @@ function PdfMainContent({ t }: { t: (key: string) => string }) {
                   <Text style={styles.rolePeriod}>{p.period}</Text>
                 </View>
                 <Text style={styles.projectDesc}>{t(p.descriptionKey)}</Text>
-                <View style={styles.techRow}>
-                  {p.techStack.map((tech) => (
-                    <Text key={tech} style={styles.techTag}>{tech}</Text>
-                  ))}
-                </View>
+                <Text style={styles.projectTech}>{p.techStack.join(' · ')}</Text>
                 {p.link && (
                   <Link src={p.link} style={styles.projectLink}>{p.link}</Link>
                 )}

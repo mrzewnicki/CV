@@ -5,12 +5,12 @@ import SectionTitle from './SectionTitle';
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
+  visible: { transition: { staggerChildren: 0.06 } },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, y: 12 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.2 } },
 };
 
 export default function WorkExperience() {
@@ -20,30 +20,31 @@ export default function WorkExperience() {
     <section>
       <SectionTitle title={t('section.work')} />
       <motion.div
-        className="space-y-5"
+        className="space-y-4"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-60px' }}
       >
         {cvData.workExperience.map((exp) => (
-          <motion.div key={exp.company} variants={itemVariants}>
-            <h3 className="text-xl font-bold text-cv-accent mb-3 pl-4">{exp.company}</h3>
-            <div className="space-y-4 pl-4 border-l-2 border-cv-accent/30">
+          <motion.div key={exp.company} variants={itemVariants} className="cv-experience-item">
+            <h3 className="text-base font-semibold text-cv-text-primary mb-2">{exp.company}</h3>
+            <div className="space-y-3 pl-4 border-l border-cv-timeline-line">
               {exp.roles.map((role) => (
                 <div key={role.titleKey} className="relative">
-                  <span className="absolute -left-[1.35rem] top-1.5 w-2.5 h-2.5 rounded-full bg-cv-accent border-2 border-cv-main" />
+                  <span className="absolute -left-[1.3rem] top-1.5 w-2.5 h-2.5 rounded-full bg-cv-accent border-2 border-cv-main" />
                   <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
-                    <span className="font-semibold text-gray-100 text-sm">{t(role.titleKey)}</span>
-                    <span className="text-xs text-cv-accent font-mono bg-cv-accent/10 px-2 py-0.5 rounded">
-                      {role.period}
-                    </span>
+                    <span className="text-base font-medium text-cv-text-primary">{t(role.titleKey)}</span>
+                    <span className="cv-date-badge">{role.period}</span>
                   </div>
                   {role.bullets.length > 0 && (
-                    <ul className="mt-2 space-y-1">
+                    <ul className="mt-1.5 space-y-1.5">
                       {role.bullets.map((b) => (
-                        <li key={b} className="flex items-start gap-2 text-xs text-gray-400">
-                          <span className="mt-1.5 w-1 h-1 rounded-full bg-cv-accent/60 flex-shrink-0" />
+                        <li
+                          key={b}
+                          className="flex items-start gap-2 text-sm leading-relaxed text-cv-text-secondary"
+                        >
+                          <span className="mt-2 w-1 h-1 rounded-full bg-cv-text-muted flex-shrink-0" />
                           {t(b)}
                         </li>
                       ))}

@@ -5,12 +5,12 @@ import SectionTitle from './SectionTitle';
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.07 } },
+  visible: { transition: { staggerChildren: 0.04 } },
 };
 
 const tagVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.2 } },
 };
 
 function SkillGroupColumn({
@@ -21,12 +21,10 @@ function SkillGroupColumn({
   t: (key: string) => string;
 }) {
   return (
-    <div className="space-y-5">
+    <div className="space-y-4">
       {groups.map((group) => (
         <div key={group.titleKey}>
-          <h4 className="text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-2">
-            {t(group.titleKey)}
-          </h4>
+          <h4 className="text-sm font-medium text-cv-text-muted mb-2">{t(group.titleKey)}</h4>
           <motion.div
             className="flex flex-wrap gap-2"
             variants={containerVariants}
@@ -35,11 +33,7 @@ function SkillGroupColumn({
             viewport={{ once: true, margin: '-40px' }}
           >
             {group.items.map((item) => (
-              <motion.span
-                key={item}
-                variants={tagVariants}
-                className="text-[11px] px-2.5 py-1 rounded-md bg-cv-surface/60 text-gray-300 border border-cv-accent/15 cursor-default"
-              >
+              <motion.span key={item} variants={tagVariants} className="cv-badge cursor-default">
                 {item}
               </motion.span>
             ))}
@@ -59,7 +53,7 @@ export default function SkillsGrid() {
   return (
     <section>
       <SectionTitle title={t('section.skills')} />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 items-start">
         <SkillGroupColumn groups={leftGroups} t={t} />
         <SkillGroupColumn groups={rightGroups} t={t} />
       </div>
