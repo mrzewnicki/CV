@@ -3,6 +3,9 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './index.css';
 import './i18n/index';
+import { initTheme } from './theme';
+
+initTheme();
 import App from './App';
 import LocaleRoute from './LocaleRoute';
 

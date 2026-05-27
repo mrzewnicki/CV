@@ -29,13 +29,13 @@ export default function WorkExperience() {
         {cvData.workExperience.map((exp) => (
           <motion.div key={exp.company} variants={itemVariants}>
             <h3 className="text-lg font-bold text-white mb-3 pl-4">{exp.company}</h3>
-            <div className="space-y-4 pl-4 border-l-2 border-[#e94560]/30">
+            <div className="space-y-4 pl-4 border-l-2 border-cv-accent/30">
               {exp.roles.map((role) => (
                 <div key={role.titleKey} className="relative">
-                  <span className="absolute -left-[1.35rem] top-1.5 w-2.5 h-2.5 rounded-full bg-[#e94560] border-2 border-[#16213e]" />
+                  <span className="absolute -left-[1.35rem] top-1.5 w-2.5 h-2.5 rounded-full bg-cv-accent border-2 border-cv-main" />
                   <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
                     <span className="font-semibold text-gray-100 text-sm">{t(role.titleKey)}</span>
-                    <span className="text-xs text-[#e94560] font-mono bg-[#e94560]/10 px-2 py-0.5 rounded">
+                    <span className="text-xs text-cv-accent font-mono bg-cv-accent/10 px-2 py-0.5 rounded">
                       {role.period}
                     </span>
                   </div>
@@ -43,7 +43,7 @@ export default function WorkExperience() {
                     <ul className="mt-2 space-y-1">
                       {role.bullets.map((b) => (
                         <li key={b} className="flex items-start gap-2 text-xs text-gray-400">
-                          <span className="mt-1.5 w-1 h-1 rounded-full bg-[#e94560]/60 flex-shrink-0" />
+                          <span className="mt-1.5 w-1 h-1 rounded-full bg-cv-accent/60 flex-shrink-0" />
                           {t(b)}
                         </li>
                       ))}

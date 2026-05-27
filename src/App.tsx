@@ -16,7 +16,7 @@ export default function App({ languagePreset = false }: AppProps) {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-[#0d0d1a] flex items-start justify-center py-8 px-4">
+    <div className="min-h-screen bg-cv-page flex items-start justify-center py-8 px-4">
       {!languagePreset && <LanguageSwitcher />}
       <PDFExportButton />
 
@@ -24,7 +24,7 @@ export default function App({ languagePreset = false }: AppProps) {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="w-full max-w-5xl shadow-2xl rounded-2xl overflow-hidden border border-[#e94560]/20"
+        className="w-full max-w-5xl shadow-2xl rounded-2xl overflow-hidden border border-cv-accent/20"
       >
         <div className="flex flex-col md:flex-row">
           {/* Left sidebar */}
@@ -33,7 +33,7 @@ export default function App({ languagePreset = false }: AppProps) {
           </div>
 
           {/* Right main content */}
-          <div className="md:w-[75%] w-full bg-[#16213e] flex flex-col">
+          <div className="md:w-[75%] w-full bg-cv-main flex flex-col">
             <Header />
             <div className="flex flex-col gap-10 px-10 pt-4 pb-10">
               <WorkExperience />
@@ -46,7 +46,7 @@ export default function App({ languagePreset = false }: AppProps) {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="text-[10px] text-gray-600 border-t border-[#e94560]/15 pt-4 leading-relaxed"
+                className="text-[10px] text-gray-600 border-t border-cv-accent/15 pt-4 leading-relaxed"
               >
                 {t('gdpr')}
               </motion.p>

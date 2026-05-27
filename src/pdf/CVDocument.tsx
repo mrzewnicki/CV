@@ -10,30 +10,21 @@ import {
 } from '@react-pdf/renderer';
 import { cvData } from '../data/cv';
 import avatarImg from '../assets/avatar.png';
+import { paletteToPdfColors } from '../theme/pdfColors';
 
 Font.register({
   family: 'Helvetica',
   fonts: [],
 });
 
-const colors = {
-  sidebar: '#1a1a2e',
-  accent: '#e94560',
-  accentLight: '#ff6b81',
-  mainBg: '#16213e',
-  white: '#ffffff',
-  lightGray: '#c8c8d0',
-  mutedGray: '#8888a0',
-  darkBlue: '#0f3460',
-  purple: '#533483',
-};
+const colors = paletteToPdfColors();
 
 const SIDEBAR_WIDTH = '25%';
 
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
-    backgroundColor: '#16213e',
+    backgroundColor: colors.mainBg,
     fontFamily: 'Helvetica',
     fontSize: 9,
     position: 'relative',

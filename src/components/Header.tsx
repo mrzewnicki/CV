@@ -3,7 +3,7 @@ import { cvData } from '../data/cv';
 
 export default function Header() {
   return (
-    <div className="bg-gradient-to-r from-[#0f3460] to-[#16213e] px-6 py-6 border-b border-[#e94560]/30">
+    <div className="bg-gradient-to-r from-cv-surface to-cv-main px-6 py-6 border-b border-cv-accent/30">
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -18,7 +18,7 @@ export default function Header() {
           <span className="block text-gray-400 text-2xl font-light tracking-[0.15em] uppercase mb-1">
             {cvData.name.first}
           </span>
-          <span className="text-[#e94560]">{cvData.name.last.toUpperCase()}</span>
+          <span className="text-cv-accent">{cvData.name.last.toUpperCase()}</span>
         </motion.h1>
       </motion.div>
     </div>

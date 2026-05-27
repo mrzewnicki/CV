@@ -20,11 +20,11 @@ export default function ProjectExperience() {
         {cvData.projects.map((p) => (
           <div
             key={p.nameKey}
-            className="bg-[#0f3460]/40 border border-[#e94560]/20 rounded-xl p-3 hover:border-[#e94560]/50 transition-colors"
+            className="bg-cv-surface/40 border border-cv-accent/20 rounded-xl p-3 hover:border-cv-accent/50 transition-colors"
           >
             <div className="flex flex-wrap items-start justify-between gap-2 mb-1.5">
               <h3 className="font-bold text-gray-100 text-sm">{t(p.nameKey)}</h3>
-              <span className="text-xs text-[#e94560] font-mono bg-[#e94560]/10 px-2 py-0.5 rounded flex-shrink-0">
+              <span className="text-xs text-cv-accent font-mono bg-cv-accent/10 px-2 py-0.5 rounded flex-shrink-0">
                 {p.period}
               </span>
             </div>
@@ -33,7 +33,7 @@ export default function ProjectExperience() {
               {p.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="text-[11px] px-2.5 py-1 rounded-md bg-[#0f3460]/60 text-gray-300 border border-[#e94560]/15"
+                  className="text-[11px] px-2.5 py-1 rounded-md bg-cv-surface/60 text-gray-300 border border-cv-accent/15"
                 >
                   {tech}
                 </span>
@@ -44,7 +44,7 @@ export default function ProjectExperience() {
                 href={p.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-xs text-[#e94560] hover:text-[#ff6b81] transition-colors"
+                className="inline-flex items-center gap-1 text-xs text-cv-accent hover:text-cv-accent-hover transition-colors"
               >
                 <ExternalLink size={12} />
                 {p.link}

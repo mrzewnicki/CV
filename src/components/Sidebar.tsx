@@ -86,7 +86,7 @@ export default function Sidebar() {
   );
 
   return (
-    <aside className="bg-[#1a1a2e] text-gray-300 flex flex-col gap-8 p-8 min-h-full">
+    <aside className="bg-cv-sidebar text-gray-300 flex flex-col gap-8 p-8 min-h-full">
       {/* Avatar / Initials */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
@@ -94,7 +94,7 @@ export default function Sidebar() {
         transition={{ duration: 0.5 }}
         className="flex flex-col items-center gap-4"
       >
-        <div className="w-36 h-36 rounded-full overflow-hidden shadow-xl ring-2 ring-[#e94560]/40">
+        <div className="w-36 h-36 rounded-full overflow-hidden shadow-xl ring-2 ring-cv-accent/40">
           <img
             src={avatarImg}
             alt={`${cvData.name.first} ${cvData.name.last}`}
@@ -108,19 +108,19 @@ export default function Sidebar() {
 
       {/* Contact */}
       <motion.section initial="hidden" animate="visible">
-        <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#e94560] mb-4 border-b border-[#e94560]/30 pb-2">
+        <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-cv-accent mb-4 border-b border-cv-accent/30 pb-2">
           {t('section.contact')}
         </h3>
         <ul className="space-y-3">
           {contactItems.map((item, i) => (
             <motion.li key={i} custom={i} variants={fadeUp} initial="hidden" animate="visible" className="flex items-start gap-2">
-              <span className="mt-0.5 text-[#e94560] flex-shrink-0">{item.icon}</span>
+              <span className="mt-0.5 text-cv-accent flex-shrink-0">{item.icon}</span>
               {item.href ? (
                 <a
                   href={item.href}
                   target={item.href.startsWith('http') ? '_blank' : undefined}
                   rel="noopener noreferrer"
-                  className="text-xs text-gray-300 hover:text-[#e94560] transition-colors break-all"
+                  className="text-xs text-gray-300 hover:text-cv-accent transition-colors break-all"
                 >
                   {item.value}
                 </a>
@@ -147,14 +147,14 @@ export default function Sidebar() {
         viewport={{ once: true }}
         transition={{ duration: 0.4 }}
       >
-        <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#e94560] mb-4 border-b border-[#e94560]/30 pb-2">
+        <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-cv-accent mb-4 border-b border-cv-accent/30 pb-2">
           {t('section.languages')}
         </h3>
         <ul className="space-y-2">
           {cvData.languages.map((lang) => (
             <li key={lang.langKey} className="flex items-center justify-between text-xs">
               <span className="text-gray-300">{t(lang.langKey)}</span>
-              <span className="px-2 py-0.5 rounded bg-[#e94560]/20 text-[#e94560] font-semibold text-[10px] tracking-wider">
+              <span className="px-2 py-0.5 rounded bg-cv-accent/20 text-cv-accent font-semibold text-[10px] tracking-wider">
                 {lang.level}
               </span>
             </li>
@@ -171,7 +171,7 @@ export default function Sidebar() {
         viewport={{ once: true }}
         transition={{ duration: 0.4, delay: 0.1 }}
       >
-        <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[#e94560] mb-4 border-b border-[#e94560]/30 pb-2">
+        <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-cv-accent mb-4 border-b border-cv-accent/30 pb-2">
           {t('section.hobby')}
         </h3>
         <ul className="space-y-3">
@@ -185,7 +185,7 @@ export default function Sidebar() {
               viewport={{ once: true }}
               className="flex items-start gap-2"
             >
-              <span className="mt-0.5 text-[#e94560] flex-shrink-0">{hobbyIcons[h.key]}</span>
+              <span className="mt-0.5 text-cv-accent flex-shrink-0">{hobbyIcons[h.key]}</span>
               <div>
                 <p className="text-xs font-semibold text-gray-200">{t(h.key)}</p>
                 <p className="text-[11px] text-gray-500">{h.detail}</p>
