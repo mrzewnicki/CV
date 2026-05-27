@@ -20,22 +20,6 @@ export default function Header() {
           </span>
           <span className="text-[#e94560]">{cvData.name.last.toUpperCase()}</span>
         </motion.h1>
-
-        <motion.div
-          className="mt-3 flex gap-3 flex-wrap"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          {['Full-Stack Developer', 'Lead Developer', '.NET · React · Azure'].map((tag) => (
-            <span
-              key={tag}
-              className="text-xs px-3 py-1 rounded-full border border-[#e94560]/50 text-[#e94560] font-medium tracking-wider"
-            >
-              {tag}
-            </span>
-          ))}
-        </motion.div>
       </motion.div>
     </div>
   );
