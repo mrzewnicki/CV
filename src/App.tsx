@@ -9,12 +9,16 @@ import SkillsGrid from './components/SkillsGrid';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import PDFExportButton from './components/PDFExportButton';
 
-export default function App() {
+type AppProps = {
+  languagePreset?: boolean;
+};
+
+export default function App({ languagePreset = false }: AppProps) {
   const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-[#0d0d1a] flex items-start justify-center py-8 px-4">
-      <LanguageSwitcher />
+      {!languagePreset && <LanguageSwitcher />}
       <PDFExportButton />
 
       <motion.div
@@ -32,7 +36,7 @@ export default function App() {
           {/* Right main content */}
           <div className="md:w-[70%] w-full bg-[#16213e] flex flex-col">
             <Header />
-            <div className="flex flex-col gap-10 px-10 py-10">
+            <div className="flex flex-col gap-10 px-10 pt-4 pb-10">
               <WorkExperience />
               <ProjectExperience />
               <Education />

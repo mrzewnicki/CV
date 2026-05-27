@@ -1,6 +1,11 @@
 # Mateusz Rzewnicki — CV
 
-Interactive CV built with React, TypeScript, Vite, and Tailwind CSS. Live site: [mrzewnicki.github.io/CV](https://mrzewnicki.github.io/CV/).
+Interactive CV built with React, TypeScript, Vite, and Tailwind CSS.
+
+- English: [mrzewnicki.github.io/CV/en](https://mrzewnicki.github.io/CV/en)
+- Polish: [mrzewnicki.github.io/CV/pl](https://mrzewnicki.github.io/CV/pl)
+
+The site root redirects to `/en`.
 
 ## Development
 
