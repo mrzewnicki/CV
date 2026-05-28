@@ -56,6 +56,7 @@ const en = {
     'skills.cloud': 'Cloud',
     'skills.systems': 'Systems',
     'skills.methods': 'Methods & Rules',
+    'skills.devops': 'DevOps',
     'skills.patterns': 'Design Patterns',
     'skills.ide': 'IDEs & Editors',
     'skills.ai': 'AI Tools',

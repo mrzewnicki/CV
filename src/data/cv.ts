@@ -132,15 +132,15 @@ export const cvData = {
   skillGroups: [
     {
       titleKey: 'skills.languages',
-      items: ['JS', 'jQuery', 'TypeScript', 'React JS/TS', 'Styled Components', 'MUI', 'C#', '.NET Framework', '.NET Core', 'ASP.NET', 'WebAPI', 'CSS', 'SCSS'],
+      items: ['JavaScript', 'TypeScript', 'React JS/TS', 'C#', '.NET Framework', '.NET Core', 'ASP.NET', 'WebAPI', 'CSS'],
     },
     {
       titleKey: 'skills.frameworks',
-      items: ['Blazor', 'Hangfire', 'SignalR', 'DevExpress', 'EntityFramework', 'LINQ', 'REST', 'SOAP', 'Selenium WebDriver', 'Playwright', 'Cypress', 'Docker'],
+      items: ['Blazor', 'jQuery', 'Styled Components', 'MUI', 'SCSS', 'Hangfire', 'SignalR', 'DevExpress', 'EntityFramework', 'LINQ', 'REST', 'SOAP', 'Selenium WebDriver', 'Playwright', 'Cypress', 'Docker'],
     },
     {
       titleKey: 'skills.databases',
-      items: ['SQL', 'T-SQL', 'PostgreSQL', 'MySQL', 'MsSQL'],
+      items: ['SQL', 'T-SQL', 'PostgreSQL', 'MySQL', 'MsSQL', 'Oracle', 'DynamoDB'],
     },
     {
       titleKey: 'skills.cloud',
@@ -148,7 +148,11 @@ export const cvData = {
     },
     {
       titleKey: 'skills.methods',
-      items: ['SCRUM', 'Agile', 'GitFlow', 'CI/CD', 'Azure DevOps', 'Trunk Based Development', 'DRY', 'SOLID'],
+      items: ['SCRUM', 'Agile', 'GitFlow', 'CI/CD', 'Trunk Based Development', 'DRY', 'SOLID', 'YAGNI'],
+    },
+    {
+      titleKey: 'skills.devops',
+      items: ['Azure DevOps', 'GitHub Enterprise'],
     },
     {
       titleKey: 'skills.patterns',
@@ -156,7 +160,7 @@ export const cvData = {
     },
     {
       titleKey: 'skills.ide',
-      items: ['Visual Studio', 'VS Code', 'JetBrains Rider', 'JetBrains WebStorm', 'Sublime', 'Atom'],
+      items: ['Visual Studio', 'VS Code', 'JetBrains Rider', 'JetBrains WebStorm', 'Sublime'],
     },
     {
       titleKey: 'skills.ai',

@@ -56,6 +56,7 @@ const pl = {
     'skills.cloud': 'Chmura',
     'skills.systems': 'Systemy operacyjne',
     'skills.methods': 'Metody i zasady',
+    'skills.devops': 'DevOps',
     'skills.patterns': 'Wzorce projektowe',
     'skills.ide': 'IDE i edytory',
     'skills.ai': 'Narzędzia AI',
