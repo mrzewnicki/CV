@@ -42,6 +42,9 @@ const en = {
     'job.sbe.junior.bullet3': 'Assisted end-users with application issues and feature requests',
 
     // Projects
+    'project.cordonLanding.name': 'Landing Page — Cordon Group Poland',
+    'project.cordonLanding.desc':
+      'Migrated the legacy landing page to Blazor and added customer-service contact and courier shipment ordering.',
     'project.motorola.name': 'Service Form — Motorola & Cordon Group Poland',
     'project.motorola.desc': 'Design and development of a service form platform for Motorola and Cordon Group Poland.',
 

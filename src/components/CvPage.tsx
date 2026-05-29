@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { layoutClass, useCvLayout } from '../context/CvLayoutContext';
+import PageEntrance from './PageEntrance';
 
 type CvPageProps = {
   sidebar?: ReactNode;
@@ -11,9 +12,12 @@ export default function CvPage({ sidebar, children, pageNumber = 1 }: CvPageProp
   const { isA4 } = useCvLayout();
   const hasSidebar = sidebar !== null && sidebar !== undefined;
 
+  const pageDelay = (pageNumber - 1) * 0.12;
+
   return (
-    <div
+    <PageEntrance
       data-cv-page={pageNumber}
+      delay={pageDelay}
       className={layoutClass(
         isA4,
         'cv-page w-full max-w-5xl overflow-hidden rounded-2xl border border-cv-border shadow-[0_4px_12px_rgba(0,0,0,0.18)] bg-cv-sidebar',
@@ -49,6 +53,6 @@ export default function CvPage({ sidebar, children, pageNumber = 1 }: CvPageProp
           {children}
         </div>
       </div>
-    </div>
+    </PageEntrance>
   );
 }

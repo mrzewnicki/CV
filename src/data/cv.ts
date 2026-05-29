@@ -110,10 +110,17 @@ export const cvData = {
 
   projects: [
     {
+      nameKey: 'project.cordonLanding.name',
+      period: '02.2026 - 04.2026',
+      techStack: ['Blazor', 'OracleDB', 'Linux'],
+      link: 'https://forms.sbe-online.pl/Landing',
+      descriptionKey: 'project.cordonLanding.desc',
+    },
+    {
       nameKey: 'project.motorola.name',
       period: '03.2024 - 08.2025',
       techStack: ['Blazor', 'OracleDB', 'Linux'],
-      link: 'https://forms.sbe-online.pl/',
+      link: 'https://motorola.sbe-online.pl/',
       descriptionKey: 'project.motorola.desc',
     },
   ] as Project[],

@@ -42,6 +42,9 @@ const pl = {
     'job.sbe.junior.bullet3': 'Pomoc użytkownikom końcowym w obsłudze aplikacji i zgłaszanych problemach',
 
     // Projects
+    'project.cordonLanding.name': 'Strona landingowa — Cordon Group Poland',
+    'project.cordonLanding.desc':
+      'Migracja starej strony landingowej na Blazor oraz nowe funkcje: kontakt z obsługą klienta i zamawianie przesyłki kurierskiej.',
     'project.motorola.name': 'Formularz serwisowy — Motorola & Cordon Group Poland',
     'project.motorola.desc': 'Projektowanie i rozwój platformy formularzy serwisowych dla Motorola i Cordon Group Poland.',
 

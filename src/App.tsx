@@ -6,6 +6,7 @@ import ProjectExperience from './components/ProjectExperience';
 import SkillsGrid from './components/SkillsGrid';
 import CvToolbar from './components/CvToolbar';
 import CvPage from './components/CvPage';
+import PageEntrance from './components/PageEntrance';
 import { useCvLayout } from './context/CvLayoutContext';
 
 type AppProps = {
@@ -55,7 +56,7 @@ export default function App({ languagePreset = false }: AppProps) {
     >
       <CvToolbar showLanguageSwitcher={!languagePreset} />
 
-      <div className="cv-page w-full max-w-5xl overflow-hidden rounded-2xl border border-cv-border shadow-[0_4px_12px_rgba(0,0,0,0.18)] bg-cv-sidebar">
+      <PageEntrance className="cv-page w-full max-w-5xl overflow-hidden rounded-2xl border border-cv-border shadow-[0_4px_12px_rgba(0,0,0,0.18)] bg-cv-sidebar">
         <div className="cv-page-row flex flex-col md:flex-row">
           <div className="cv-sidebar-col md:w-[25%] w-full bg-cv-sidebar">
             <Sidebar />
@@ -72,7 +73,7 @@ export default function App({ languagePreset = false }: AppProps) {
             </div>
           </div>
         </div>
-      </div>
+      </PageEntrance>
     </div>
   );
 }
