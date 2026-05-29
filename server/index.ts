@@ -58,12 +58,9 @@ app.get('/pdf', async (req, res) => {
     await page.evaluate(() => document.fonts.ready);
 
     // Inject styles to eliminate sub-pixel white slivers at the page edges.
-    // Chrome prints a 210mm page into a PDF canvas that ends up ~210.23mm
-    // wide, so a 1px white sliver appears on the right unless an ancestor
-    // with the main bg extends past the A4 right edge. We widen #root so
-    // its main bg fills the rightmost bleed area, while keeping the
-    // [data-cv-layout] wrapper at A4 width so its (sidebar-colored) bg
-    // does not leak past the cv-page's right edge.
+    // Chrome's PDF rendering creates pages slightly larger than requested
+    // (~210.23mm for 210mm). We tell CSS the page is larger via @page so
+    // backgrounds extend past the actual PDF boundaries.
     await page.evaluate(() => {
       const style = document.createElement('style');
       style.textContent = `
@@ -72,21 +69,52 @@ app.get('/pdf', async (req, res) => {
           margin: 0 !important;
         }
         html, body {
-          background: var(--cv-main) !important;
+          background: #1E293B !important;
           margin: 0 !important;
           padding: 0 !important;
+          min-width: 211mm !important;
+          min-height: 298mm !important;
         }
         #root {
-          background: var(--cv-main) !important;
+          background: #1E293B !important;
           margin: 0 !important;
           padding: 0 !important;
-          width: 215mm !important;
+          min-width: 211mm !important;
+          min-height: 595mm !important;
         }
         #root > [data-cv-layout='a4'] {
-          background: var(--cv-main) !important;
+          background: #1E293B !important;
           margin: 0 !important;
           padding: 0 !important;
-          width: 210mm !important;
+          gap: 0 !important;
+          min-width: 211mm !important;
+          min-height: 595mm !important;
+        }
+        .cv-page {
+          width: 212mm !important;
+          min-height: 299.2mm !important;
+          margin: 0 !important;
+          outline: none !important;
+          box-shadow: none !important;
+          background: #111827 !important;
+        }
+        .cv-page-row {
+          min-height: 298mm !important;
+        }
+        .cv-sidebar-col {
+          background: #111827 !important;
+          min-height: 298mm !important;
+        }
+        .cv-main-col {
+          background: #1E293B !important;
+          min-height: 298mm !important;
+        }
+        /* Ensure page 2 fills properly */
+        [data-cv-page="2"] {
+          background: #111827 !important;
+        }
+        [data-cv-page="2"] .cv-main-col {
+          background: #1E293B !important;
         }
       `;
       document.head.appendChild(style);
