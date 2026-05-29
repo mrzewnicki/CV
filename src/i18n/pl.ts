@@ -82,6 +82,8 @@ const pl = {
     'nav.dob': 'Data urodzenia',
     'contact.street': 'ul. Ks. Skargi 29B',
     'contact.taxId': 'NIP',
+    'contact.copy': 'Kopiuj',
+    'contact.copied': 'Skopiowano',
 
     // GDPR
     gdpr: 'Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. (RODO).',

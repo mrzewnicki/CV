@@ -7,6 +7,7 @@ import Education from './Education';
 import SidebarSectionTitle from './SidebarSectionTitle';
 import { layoutClass, useCvLayout } from '../context/CvLayoutContext';
 import ScrollReveal from './ScrollReveal';
+import ContactListItem from './ContactListItem';
 
 function LinkedInIcon({ size = 14 }: { size?: number }) {
   return (
@@ -41,33 +42,37 @@ export default function Sidebar() {
       {
         icon: <Phone size={iconSize} />,
         value: cvData.contact.phone,
+        copyValue: cvData.contact.phone,
         href: `tel:${cvData.contact.phone.replace(/\s/g, '')}`,
       },
       {
         icon: <Mail size={iconSize} />,
         value: cvData.contact.email,
+        copyValue: cvData.contact.email,
         href: `mailto:${cvData.contact.email}`,
       },
       {
         icon: <LinkedInIcon size={iconSize} />,
         value: cvData.contact.linkedinHandle,
+        copyValue: cvData.contact.linkedin,
         href: cvData.contact.linkedin,
       },
       {
         icon: <GitHubIcon size={iconSize} />,
         value: cvData.contact.githubHandle,
+        copyValue: cvData.contact.github,
         href: cvData.contact.github,
       },
       {
         icon: <MapPin size={iconSize} />,
         value: cvData.contact.address,
         secondLine: t('contact.street'),
-        href: undefined,
+        copyValue: `${cvData.contact.address}\n${t('contact.street')}`,
       },
       {
         icon: <Building2 size={iconSize} />,
         value: `${t('contact.taxId')}: ${cvData.contact.nip}`,
-        href: undefined,
+        copyValue: cvData.contact.nip,
       },
     ],
     [t, iconSize],
@@ -106,47 +111,7 @@ export default function Sidebar() {
         <SidebarSectionTitle title={t('section.contact')} />
         <ul className={layoutClass(isA4, 'space-y-2.5', 'space-y-1.5')}>
           {contactItems.map((item, i) => (
-            <li key={i} className={layoutClass(isA4, 'flex items-start gap-2', 'flex items-start gap-1.5')}>
-              <span
-                className={layoutClass(
-                  isA4,
-                  'mt-0.5 text-cv-text-muted flex-shrink-0',
-                  'mt-px text-cv-text-muted flex-shrink-0',
-                )}
-              >
-                {item.icon}
-              </span>
-              {item.href ? (
-                <a
-                  href={item.href}
-                  target={item.href.startsWith('http') ? '_blank' : undefined}
-                  rel="noopener noreferrer"
-                  className={layoutClass(
-                    isA4,
-                    'text-xs text-cv-text-secondary hover:text-cv-accent transition-colors duration-200 break-all',
-                    'text-[9px] text-cv-text-secondary hover:text-cv-accent transition-colors duration-200 break-all',
-                  )}
-                >
-                  {item.value}
-                </a>
-              ) : (
-                <span
-                  className={layoutClass(
-                    isA4,
-                    'text-xs text-cv-text-secondary min-w-0 break-words block',
-                    'text-[9px] text-cv-text-secondary min-w-0 break-words block',
-                  )}
-                >
-                  {item.value}
-                  {'secondLine' in item && item.secondLine ? (
-                    <>
-                      <br />
-                      {item.secondLine}
-                    </>
-                  ) : null}
-                </span>
-              )}
-            </li>
+            <ContactListItem key={i} item={item} />
           ))}
         </ul>
       </ScrollReveal>

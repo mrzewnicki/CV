@@ -24,8 +24,8 @@ export default function Header() {
       <p
         className={layoutClass(
           isA4,
-          'text-lg font-medium text-cv-text-secondary mb-0.5',
-          'text-[11px] font-medium text-cv-text-secondary mb-0.5',
+          'text-2xl md:text-3xl font-medium text-cv-text-secondary mb-0.5',
+          'text-[13px] font-medium text-cv-text-secondary mb-0.5',
         )}
       >
         {cvData.name.first}

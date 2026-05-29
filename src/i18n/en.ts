@@ -82,6 +82,8 @@ const en = {
     'nav.dob': 'Date of birth',
     'contact.street': 'st. Ks. Skargi 29B',
     'contact.taxId': 'TIN',
+    'contact.copy': 'Copy',
+    'contact.copied': 'Copied',
 
     // GDPR
     gdpr: 'I consent to the processing of my personal data for the purposes necessary to carry out the recruitment process in accordance with Regulation (EU) 2016/679 of the European Parliament and of the Council of April 27, 2016 (GDPR).',
