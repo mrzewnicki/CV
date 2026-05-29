@@ -99,7 +99,12 @@
     transform: translateY(-2px);
   }
 
-  /* A4 export / ?pdf=1 capture */
+  /* A4 export / ?pdf=1 capture — ensure scroll-reveal placeholders are fully visible */
+  [data-cv-layout='a4'] [data-cv-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
   [data-cv-layout='a4'] .cv-badge {
     font-size: 0.625rem;
     padding: 2px 7px;
@@ -170,6 +175,11 @@
   *::after {
     animation: none !important;
     transition: none !important;
+  }
+
+  [data-cv-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   /* Strip outer wrapper styling */

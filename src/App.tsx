@@ -7,6 +7,7 @@ import SkillsGrid from './components/SkillsGrid';
 import CvToolbar from './components/CvToolbar';
 import CvPage from './components/CvPage';
 import PageEntrance from './components/PageEntrance';
+import ScrollReveal from './components/ScrollReveal';
 import { useCvLayout } from './context/CvLayoutContext';
 
 type AppProps = {
@@ -67,9 +68,11 @@ export default function App({ languagePreset = false }: AppProps) {
               <WorkExperience />
               <ProjectExperience />
               <SkillsGrid />
-              <p className="text-[10px] text-cv-text-muted border-t border-cv-border pt-4 leading-relaxed">
-                {t('gdpr')}
-              </p>
+              <ScrollReveal delay={0.2}>
+                <p className="text-[10px] text-cv-text-muted border-t border-cv-border pt-4 leading-relaxed">
+                  {t('gdpr')}
+                </p>
+              </ScrollReveal>
             </div>
           </div>
         </div>

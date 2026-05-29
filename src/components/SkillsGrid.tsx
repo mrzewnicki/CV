@@ -2,20 +2,27 @@ import { useTranslation } from 'react-i18next';
 import { cvData } from '../data/cv';
 import SectionTitle from './SectionTitle';
 import { layoutClass, useCvLayout } from '../context/CvLayoutContext';
+import ScrollReveal from './ScrollReveal';
 
 function SkillGroupColumn({
   groups,
   t,
   isA4,
+  delayOffset = 0,
 }: {
   groups: (typeof cvData.skillGroups)[number][];
   t: (key: string) => string;
   isA4: boolean;
+  delayOffset?: number;
 }) {
   return (
     <div className={layoutClass(isA4, 'space-y-4', 'space-y-3')}>
-      {groups.map((group) => (
-        <div key={group.titleKey} className="cv-skill-group">
+      {groups.map((group, index) => (
+        <ScrollReveal
+          key={group.titleKey}
+          className="cv-skill-group"
+          delay={0.08 + (delayOffset + index) * 0.08}
+        >
           <h4
             className={layoutClass(
               isA4,
@@ -32,7 +39,7 @@ function SkillGroupColumn({
               </span>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       ))}
     </div>
   );
@@ -47,7 +54,9 @@ export default function SkillsGrid() {
 
   return (
     <section>
-      <SectionTitle title={t('section.skills')} />
+      <ScrollReveal>
+        <SectionTitle title={t('section.skills')} />
+      </ScrollReveal>
       <div
         className={layoutClass(
           isA4,
@@ -56,7 +65,7 @@ export default function SkillsGrid() {
         )}
       >
         <SkillGroupColumn groups={leftGroups} t={t} isA4={isA4} />
-        <SkillGroupColumn groups={rightGroups} t={t} isA4={isA4} />
+        <SkillGroupColumn groups={rightGroups} t={t} isA4={isA4} delayOffset={leftGroups.length} />
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import type { ReactNode } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useCvMotion } from '../hooks/useCvMotion';
 
 type PageEntranceProps = {
   children: ReactNode;
@@ -16,11 +16,9 @@ export default function PageEntrance({
   delay = 0,
   'data-cv-page': dataCvPage,
 }: PageEntranceProps) {
-  const prefersReducedMotion = useReducedMotion();
-  const [searchParams] = useSearchParams();
-  const isPdfCapture = searchParams.get('pdf') === '1';
+  const { enabled } = useCvMotion();
 
-  if (prefersReducedMotion || isPdfCapture) {
+  if (!enabled) {
     return (
       <div className={className} data-cv-page={dataCvPage}>
         {children}

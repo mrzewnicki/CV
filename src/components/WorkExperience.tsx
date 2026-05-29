@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { cvData } from '../data/cv';
 import SectionTitle from './SectionTitle';
 import { layoutClass, useCvLayout } from '../context/CvLayoutContext';
+import ScrollReveal from './ScrollReveal';
 
 export default function WorkExperience() {
   const { t } = useTranslation();
@@ -9,10 +10,16 @@ export default function WorkExperience() {
 
   return (
     <section>
-      <SectionTitle title={t('section.work')} />
+      <ScrollReveal>
+        <SectionTitle title={t('section.work')} />
+      </ScrollReveal>
       <div className={layoutClass(isA4, 'space-y-4', 'space-y-3')}>
-        {cvData.workExperience.map((exp) => (
-          <div key={exp.company} className="cv-experience-company">
+        {cvData.workExperience.map((exp, companyIndex) => (
+          <ScrollReveal
+            key={exp.company}
+            className="cv-experience-company"
+            delay={0.08 + companyIndex * 0.1}
+          >
             <h3
               className={layoutClass(
                 isA4,
@@ -29,8 +36,12 @@ export default function WorkExperience() {
                 'space-y-2 pl-3 border-l border-cv-timeline-line',
               )}
             >
-              {exp.roles.map((role) => (
-                <div key={role.titleKey} className="cv-role-item relative">
+              {exp.roles.map((role, roleIndex) => (
+                <ScrollReveal
+                  key={role.titleKey}
+                  className="cv-role-item relative"
+                  delay={0.12 + companyIndex * 0.1 + roleIndex * 0.08}
+                >
                   <span
                     className={layoutClass(
                       isA4,
@@ -73,10 +84,10 @@ export default function WorkExperience() {
                       ))}
                     </ul>
                   )}
-                </div>
+                </ScrollReveal>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
         ))}
       </div>
     </section>

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { cvData } from '../data/cv';
 import { yearsOfExperience } from '../utils/experienceYears';
 import { layoutClass, useCvLayout } from '../context/CvLayoutContext';
+import ScrollReveal from './ScrollReveal';
 
 export default function Header() {
   const { t } = useTranslation();
@@ -12,7 +13,8 @@ export default function Header() {
     [],
   );
   return (
-    <header
+    <ScrollReveal
+      as="header"
       className={layoutClass(
         isA4,
         'border-b border-cv-border bg-cv-main px-8 py-5',
@@ -55,6 +57,6 @@ export default function Header() {
       >
         {t('header.meta', { years: experienceYears })}
       </p>
-    </header>
+    </ScrollReveal>
   );
 }

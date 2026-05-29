@@ -3,6 +3,7 @@ import { ExternalLink } from 'lucide-react';
 import { cvData } from '../data/cv';
 import SectionTitle from './SectionTitle';
 import { layoutClass, useCvLayout } from '../context/CvLayoutContext';
+import ScrollReveal from './ScrollReveal';
 
 export default function ProjectExperience() {
   const { t } = useTranslation();
@@ -10,11 +11,14 @@ export default function ProjectExperience() {
 
   return (
     <section>
-      <SectionTitle title={t('section.projects')} />
+      <ScrollReveal>
+        <SectionTitle title={t('section.projects')} />
+      </ScrollReveal>
       <div className={layoutClass(isA4, 'space-y-3', 'space-y-2')}>
-        {cvData.projects.map((p) => (
-          <div
+        {cvData.projects.map((p, index) => (
+          <ScrollReveal
             key={p.nameKey}
+            delay={0.08 + index * 0.1}
             className={layoutClass(isA4, 'cv-card cv-project-card p-4', 'cv-card cv-project-card p-2.5')}
           >
             <div
@@ -68,7 +72,7 @@ export default function ProjectExperience() {
                 {p.link}
               </a>
             )}
-          </div>
+          </ScrollReveal>
         ))}
       </div>
     </section>

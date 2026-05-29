@@ -6,6 +6,7 @@ import avatarImg from '../assets/avatar.png';
 import Education from './Education';
 import SidebarSectionTitle from './SidebarSectionTitle';
 import { layoutClass, useCvLayout } from '../context/CvLayoutContext';
+import ScrollReveal from './ScrollReveal';
 
 function LinkedInIcon({ size = 14 }: { size?: number }) {
   return (
@@ -80,7 +81,9 @@ export default function Sidebar() {
         'bg-cv-sidebar text-cv-text-secondary flex flex-col gap-4 p-4 min-h-full',
       )}
     >
-      <div className={layoutClass(isA4, 'flex flex-col items-center gap-3', 'flex flex-col items-center gap-2')}>
+      <ScrollReveal
+        className={layoutClass(isA4, 'flex flex-col items-center gap-3', 'flex flex-col items-center gap-2')}
+      >
         <div
           className={layoutClass(
             isA4,
@@ -97,9 +100,9 @@ export default function Sidebar() {
         <p className={layoutClass(isA4, 'text-xs text-cv-text-muted', 'text-[8px] text-cv-text-muted')}>
           {t('nav.dob')}: {cvData.contact.dob}
         </p>
-      </div>
+      </ScrollReveal>
 
-      <section>
+      <ScrollReveal as="section" delay={0.08}>
         <SidebarSectionTitle title={t('section.contact')} />
         <ul className={layoutClass(isA4, 'space-y-2.5', 'space-y-1.5')}>
           {contactItems.map((item, i) => (
@@ -146,9 +149,9 @@ export default function Sidebar() {
             </li>
           ))}
         </ul>
-      </section>
+      </ScrollReveal>
 
-      <section>
+      <ScrollReveal as="section" delay={0.16}>
         <SidebarSectionTitle title={t('section.languages')} />
         <ul className={layoutClass(isA4, 'space-y-2', 'space-y-1.5')}>
           {cvData.languages.map((lang) => (
@@ -174,11 +177,13 @@ export default function Sidebar() {
             </li>
           ))}
         </ul>
-      </section>
+      </ScrollReveal>
 
-      <Education variant="sidebar" />
+      <ScrollReveal delay={0.24}>
+        <Education variant="sidebar" />
+      </ScrollReveal>
 
-      <section>
+      <ScrollReveal as="section" delay={0.32}>
         <SidebarSectionTitle title={t('section.hobby')} />
         <ul className={layoutClass(isA4, 'space-y-2.5', 'space-y-1.5')}>
           {cvData.hobby.map((h) => (
@@ -207,7 +212,7 @@ export default function Sidebar() {
             </li>
           ))}
         </ul>
-      </section>
+      </ScrollReveal>
     </aside>
   );
 }
